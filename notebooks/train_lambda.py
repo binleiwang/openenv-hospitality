@@ -151,6 +151,13 @@ print(f"LOCAL_BASE: {LOCAL_BASE}")
 # --- Env server + client runtime ---
 !pip install -q "openenv-core==0.2.3" fastapi "uvicorn[standard]" httpx nest_asyncio
 
+# --- Template / hub / tokenizers baseline (Lambda stock is too old) ---
+# Lambda image ships jinja2 3.0.3; transformers.apply_chat_template needs >=3.1.0
+# (raises ImportError with the exact version string otherwise).
+# Pin conservatively — these are small, stable libs.
+!pip install -q "jinja2>=3.1.4" "markupsafe>=2.1.5" "huggingface_hub>=0.24.0" \
+                 "tokenizers>=0.21.0" "typing_extensions>=4.10.0" "safetensors>=0.4.3"
+
 # --- Install hospitality_env itself (non-editable, avoids PEP 660 issue) ---
 !pip install --no-deps -q /home/ubuntu/openenv-hospitality/hospitality_env/
 
