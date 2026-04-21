@@ -49,10 +49,13 @@ Pipeline:
 # %%
 # Install dependencies. On Colab, uncomment the whole block below.
 # !pip install -q "unsloth[cu121] @ git+https://github.com/unslothai/unsloth.git"
-# !pip install -q trl==0.12.2 accelerate bitsandbytes
+# !pip install -q "trl>=0.18.2,<=0.24.0" "transformers>=4.51.3,<=5.5.0" accelerate bitsandbytes
 # !pip install -q openenv-core==0.2.3
 # !pip install -q fastapi "uvicorn[standard]" httpx
 # !pip install -q nest_asyncio  # needed because Colab already has a running event loop
+#
+# NOTE: After pip install finishes, do Runtime → Restart session before running
+# subsequent cells, so the upgraded transformers/trl versions take effect.
 
 # %%
 # Allow asyncio.run_until_complete() to work inside Colab's existing event loop.
@@ -62,9 +65,10 @@ nest_asyncio.apply()
 
 # %%
 # Clone and install the hospitality_env package.
+# The pyproject.toml lives inside the hospitality_env/ subdirectory, so install from there.
 # !git clone https://github.com/<your-username>/openenv-hospitality.git
 # %cd openenv-hospitality
-# !pip install -e .
+# !pip install -e hospitality_env/
 
 # %% [markdown]
 # ## 2. Launch the hospitality env server in the background
