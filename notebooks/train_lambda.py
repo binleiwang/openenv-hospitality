@@ -92,15 +92,25 @@ print(f"LOCAL_BASE: {LOCAL_BASE}")
 # Upgrade build tooling first so editable-or-not install works on stock Lambda image
 !pip install -q --upgrade pip setuptools wheel
 
-# Torchvision must match torch on Lambda's 2.10 image (ships with 0.22, we need 0.25+)
-!pip install -q --upgrade "torchvision>=0.25.0"
+# Wipe legacy trl pin (Colab-era trl==0.15.2 blocks modern unsloth >= 0.18.2 req)
+!pip uninstall -y -q trl
+
+# Torch 2.10 + matching torchvision. Lambda's stock image has torch 2.10 but
+# torchvision 0.22 (mismatch). We pin BOTH explicitly so pip doesn't drift
+# torch up to 2.11 (unsloth caps torch<2.11.0).
+!pip install -q "torch==2.10.0" "torchvision==0.25.0"
+
+# Modern Pillow — system /usr/lib PIL is 7.x and lacks Image.Resampling
+# (transformers.image_utils crashes on import without this). User-level
+# Pillow 10+ takes precedence via ~/.local site-packages.
+!pip install -q --upgrade "Pillow>=10.0.0"
 
 # Unsloth (PyPI stable, not the git+https variant — git fragment fails on modern pip)
 !pip install -q unsloth==2026.4.6
 
-# Core training stack — NOTE: Colab pipeline used trl==0.15.2 (ancient), but modern
-# unsloth requires trl>=0.18.2. We use trl 0.18.2+ here. Our SFTTrainer / GRPOTrainer
-# API usage is compatible with both (uses `processing_class`, standard SFTConfig fields).
+# Core training stack. NOTE: Colab pipeline used trl==0.15.2 (ancient), but modern
+# unsloth requires trl>=0.18.2. Our SFTTrainer / GRPOTrainer API usage is
+# compatible with both (uses `processing_class`, standard SFTConfig fields).
 !pip install -q "trl>=0.18.2,<=0.24.0" "transformers>=4.51.3,<=5.5.0" "accelerate" "bitsandbytes"
 !pip install -q "pydantic>=2.10.6" "pydantic-core>=2.27.2"
 !pip install -q "datasets>=3.0"
