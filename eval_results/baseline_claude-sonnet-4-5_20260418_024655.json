@@ -1,0 +1,1172 @@
+{
+  "args": {
+    "n": 116,
+    "seed": 42,
+    "model": "claude-sonnet-4-5",
+    "base_url": "http://127.0.0.1:8000",
+    "task_ids": "",
+    "out_dir": "eval_results"
+  },
+  "records": [
+    {
+      "task_id": "hospitality_082_price_inquiry",
+      "reward": 0.6000000000000001,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 10.58
+    },
+    {
+      "task_id": "hospitality_015_food_poisoning_claim",
+      "reward": 0.825,
+      "turns": 5,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 76.58
+    },
+    {
+      "task_id": "hospitality_004_holiday_logic",
+      "reward": 0.55,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 80.57
+    },
+    {
+      "task_id": "hospitality_095_dietary_diabetic",
+      "reward": 0.45,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 80.75
+    },
+    {
+      "task_id": "hospitality_036_tier_upgrade_question",
+      "reward": 0.30000000000000004,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 63.2
+    },
+    {
+      "task_id": "hospitality_032_christmas_reservation",
+      "reward": 0.09999999999999998,
+      "turns": 5,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 111.51
+    },
+    {
+      "task_id": "hospitality_029_mlk_day_lunch_special",
+      "reward": 0.55,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 65.22
+    },
+    {
+      "task_id": "hospitality_018_peanut_cross_contamination",
+      "reward": 2.4,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 85.7
+    },
+    {
+      "task_id": "hospitality_008_slow_service_shame_attitude",
+      "reward": 2.47,
+      "turns": 9,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 190.04
+    },
+    {
+      "task_id": "hospitality_014_post_payment_coupon",
+      "reward": 0.45,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 82.99
+    },
+    {
+      "task_id": "hospitality_087_positive_feedback",
+      "reward": 0.4,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 40.79
+    },
+    {
+      "task_id": "hospitality_042_wrong_soup_base_overload",
+      "reward": 1.4,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 5.62
+    },
+    {
+      "task_id": "hospitality_070_dirty_utensils",
+      "reward": 1.0250000000000001,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 9.51
+    },
+    {
+      "task_id": "hospitality_012_points_redemption",
+      "reward": 0.30000000000000004,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 6.37
+    },
+    {
+      "task_id": "hospitality_076_kosher_inquiry",
+      "reward": 0.6000000000000001,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 14.51
+    },
+    {
+      "task_id": "hospitality_055_spill_minor",
+      "reward": 0.15000000000000002,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 6.13
+    },
+    {
+      "task_id": "hospitality_005_trend_out_of_stock",
+      "reward": 0.55,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 12.28
+    },
+    {
+      "task_id": "hospitality_043_frozen_meat_stuck_overload",
+      "reward": 1.4250000000000003,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 8.39
+    },
+    {
+      "task_id": "hospitality_045_shrimp_prep_walkout",
+      "reward": 1.65,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.36
+    },
+    {
+      "task_id": "hospitality_028_large_party_weekend",
+      "reward": 0.07500000000000001,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 12.63
+    },
+    {
+      "task_id": "hospitality_030_thanksgiving_reservation",
+      "reward": 0.06999999999999998,
+      "turns": 14,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 37.03
+    },
+    {
+      "task_id": "hospitality_065_window_seat",
+      "reward": 0.30000000000000004,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 5.76
+    },
+    {
+      "task_id": "hospitality_078_spice_level_question",
+      "reward": 0.6000000000000001,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.06
+    },
+    {
+      "task_id": "hospitality_099_manager_not_available",
+      "reward": 0.050000000000000044,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 5.18
+    },
+    {
+      "task_id": "hospitality_072_forgotten_leftovers",
+      "reward": 0.4,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 4.39
+    },
+    {
+      "task_id": "hospitality_026_cake_wrong_table",
+      "reward": -0.32499999999999996,
+      "turns": 4,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 17.02
+    },
+    {
+      "task_id": "hospitality_084_competitor_comparison",
+      "reward": 0.4,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.03
+    },
+    {
+      "task_id": "hospitality_060_surprise_party_overload",
+      "reward": 1.0,
+      "turns": 3,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 11.84
+    },
+    {
+      "task_id": "hospitality_054_garment_cover",
+      "reward": 0.7000000000000001,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 5.97
+    },
+    {
+      "task_id": "hospitality_059_anniversary_special_overload",
+      "reward": 1.1,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 10.45
+    },
+    {
+      "task_id": "hospitality_058_manager_request",
+      "reward": 1.525,
+      "turns": 2,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.05
+    },
+    {
+      "task_id": "hospitality_041_slow_appetizer_attitude",
+      "reward": 2.17,
+      "turns": 9,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 21.49
+    },
+    {
+      "task_id": "hospitality_062_graduation_dinner_equipment",
+      "reward": 1.1,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 14.11
+    },
+    {
+      "task_id": "hospitality_001_birthday_empathy",
+      "reward": 2.1,
+      "turns": 8,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 33.21
+    },
+    {
+      "task_id": "hospitality_021_reservation_party_increase",
+      "reward": 0.45,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 10.41
+    },
+    {
+      "task_id": "hospitality_101_gluten_birthday_heartbreak",
+      "reward": -1.3,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 17.31
+    },
+    {
+      "task_id": "hospitality_044_missing_item",
+      "reward": 0.35000000000000003,
+      "turns": 7,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 16.78
+    },
+    {
+      "task_id": "hospitality_090_private_room",
+      "reward": 0.45,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 11.91
+    },
+    {
+      "task_id": "hospitality_020_shellfish_seafood_platter",
+      "reward": 0.44999999999999996,
+      "turns": 6,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 16.02
+    },
+    {
+      "task_id": "hospitality_097_service_dog",
+      "reward": 0.4,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 4.05
+    },
+    {
+      "task_id": "hospitality_080_wagyu_difference",
+      "reward": 0.6000000000000001,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 11.21
+    },
+    {
+      "task_id": "hospitality_043_frozen_meat_stuck_attitude",
+      "reward": 1.7999999999999998,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 10.54
+    },
+    {
+      "task_id": "hospitality_098_emotional_support_pet",
+      "reward": 0.4,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.49
+    },
+    {
+      "task_id": "hospitality_049_pregnant_guest_gift",
+      "reward": 0.625,
+      "turns": 5,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 14.82
+    },
+    {
+      "task_id": "hospitality_013_patio_request",
+      "reward": 0.30000000000000004,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 11.56
+    },
+    {
+      "task_id": "hospitality_046_bill_calculation_error",
+      "reward": 0.45,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 11.03
+    },
+    {
+      "task_id": "hospitality_045_shrimp_prep_request",
+      "reward": 0.7250000000000001,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.59
+    },
+    {
+      "task_id": "hospitality_034_birthday_voucher_expired",
+      "reward": 0.30000000000000004,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.88
+    },
+    {
+      "task_id": "hospitality_006_branch_inconsistency",
+      "reward": 0.55,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 9.21
+    },
+    {
+      "task_id": "hospitality_059_anniversary_special",
+      "reward": 0.4,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 9.31
+    },
+    {
+      "task_id": "hospitality_016_discontinued_item_bonding",
+      "reward": 0.55,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 10.83
+    },
+    {
+      "task_id": "hospitality_073_lost_phone",
+      "reward": 0.4,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 5.97
+    },
+    {
+      "task_id": "hospitality_011_authority_limit",
+      "reward": 1.3250000000000002,
+      "turns": 6,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 17.9
+    },
+    {
+      "task_id": "hospitality_079_half_half_explanation",
+      "reward": 0.30000000000000004,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.57
+    },
+    {
+      "task_id": "hospitality_019_dairy_allergy_boba",
+      "reward": 0.65,
+      "turns": 5,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 13.79
+    },
+    {
+      "task_id": "hospitality_088_gift_card_inquiry",
+      "reward": 0.4,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 5.89
+    },
+    {
+      "task_id": "hospitality_041_slow_appetizer",
+      "reward": 1.1,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 10.92
+    },
+    {
+      "task_id": "hospitality_040_invalid_secret_code",
+      "reward": 0.55,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 5.51
+    },
+    {
+      "task_id": "hospitality_057_slip_fall",
+      "reward": 1.4249999999999998,
+      "turns": 8,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 19.66
+    },
+    {
+      "task_id": "hospitality_056_spill_on_child",
+      "reward": -0.475,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 8.18
+    },
+    {
+      "task_id": "hospitality_024_wheelchair_accessibility",
+      "reward": -0.2,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 6.86
+    },
+    {
+      "task_id": "hospitality_037_secret_code_inventory",
+      "reward": 0.8500000000000001,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 8.53
+    },
+    {
+      "task_id": "hospitality_092_hours_question",
+      "reward": 0.4,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.83
+    },
+    {
+      "task_id": "hospitality_071_restroom_complaint",
+      "reward": 0.42500000000000004,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 9.18
+    },
+    {
+      "task_id": "hospitality_100_end_of_service",
+      "reward": 0.4,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 8.72
+    },
+    {
+      "task_id": "hospitality_003_sms_trap",
+      "reward": 0.0,
+      "turns": 7,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 19.21
+    },
+    {
+      "task_id": "hospitality_043_frozen_meat_stuck",
+      "reward": 1.35,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 5.8
+    },
+    {
+      "task_id": "hospitality_059_anniversary_special_equipment",
+      "reward": 1.4200000000000002,
+      "turns": 10,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 25.5
+    },
+    {
+      "task_id": "hospitality_062_graduation_dinner",
+      "reward": 0.09999999999999998,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 5.59
+    },
+    {
+      "task_id": "hospitality_068_noise_complaint",
+      "reward": 0.30000000000000004,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 11.97
+    },
+    {
+      "task_id": "hospitality_008_slow_service_shame_understaffed",
+      "reward": 2.1999999999999997,
+      "turns": 7,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 27.23
+    },
+    {
+      "task_id": "hospitality_007_hidden_allergy",
+      "reward": 1.0,
+      "turns": 6,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 18.22
+    },
+    {
+      "task_id": "hospitality_025_birthday_cake_storage",
+      "reward": 0.30000000000000004,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 6.95
+    },
+    {
+      "task_id": "hospitality_009_melted_cake_understaffed",
+      "reward": 2.3,
+      "turns": 5,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 17.72
+    },
+    {
+      "task_id": "hospitality_096_crying_baby",
+      "reward": 0.65,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 6.85
+    },
+    {
+      "task_id": "hospitality_060_surprise_party",
+      "reward": 0.050000000000000044,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 6.65
+    },
+    {
+      "task_id": "hospitality_086_social_media_threat",
+      "reward": -0.65,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 4.39
+    },
+    {
+      "task_id": "hospitality_064_booth_preference",
+      "reward": 0.55,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 8.18
+    },
+    {
+      "task_id": "hospitality_067_long_wait_for_table",
+      "reward": -0.125,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 9.62
+    },
+    {
+      "task_id": "hospitality_023_high_chair_shortage",
+      "reward": -0.10000000000000003,
+      "turns": 4,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 16.27
+    },
+    {
+      "task_id": "hospitality_075_halal_inquiry",
+      "reward": 0.45,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 14.21
+    },
+    {
+      "task_id": "hospitality_050_senior_cushion_request",
+      "reward": 0.4,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 9.42
+    },
+    {
+      "task_id": "hospitality_052_alcohol_takeout",
+      "reward": 0.4,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 5.31
+    },
+    {
+      "task_id": "hospitality_039_second_code_attempt",
+      "reward": 0.55,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 5.23
+    },
+    {
+      "task_id": "hospitality_066_server_complaint",
+      "reward": 0.42500000000000004,
+      "turns": 5,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 12.68
+    },
+    {
+      "task_id": "hospitality_047_tip_included_confusion",
+      "reward": 0.45,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.88
+    },
+    {
+      "task_id": "hospitality_053_corkage_fee",
+      "reward": 0.4,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.16
+    },
+    {
+      "task_id": "hospitality_061_proposal_request",
+      "reward": 0.09999999999999998,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 9.07
+    },
+    {
+      "task_id": "hospitality_009_melted_cake",
+      "reward": 2.05,
+      "turns": 5,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 17.29
+    },
+    {
+      "task_id": "hospitality_061_proposal_request_equipment",
+      "reward": 0.275,
+      "turns": 2,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 9.46
+    },
+    {
+      "task_id": "hospitality_081_portion_question",
+      "reward": 0.6000000000000001,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 20.17
+    },
+    {
+      "task_id": "hospitality_035_points_expiration",
+      "reward": 0.30000000000000004,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 6.34
+    },
+    {
+      "task_id": "hospitality_008_slow_service_shame",
+      "reward": 1.625,
+      "turns": 7,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 15.97
+    },
+    {
+      "task_id": "hospitality_022_walk_in_vs_reservation",
+      "reward": 0.22499999999999998,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 8.19
+    },
+    {
+      "task_id": "hospitality_033_multiple_discounts_request",
+      "reward": 0.55,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 13.76
+    },
+    {
+      "task_id": "hospitality_002_gift_conflict",
+      "reward": 0.625,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 11.52
+    },
+    {
+      "task_id": "hospitality_038_golden_bricks_code",
+      "reward": 0.8500000000000001,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 9.51
+    },
+    {
+      "task_id": "hospitality_027_reservation_no_show_policy",
+      "reward": 0.07500000000000001,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 6.54
+    },
+    {
+      "task_id": "hospitality_091_parking_question",
+      "reward": 0.4,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 8.29
+    },
+    {
+      "task_id": "hospitality_044_missing_item_printer_error",
+      "reward": 0.9500000000000001,
+      "turns": 8,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 25.18
+    },
+    {
+      "task_id": "hospitality_077_kids_menu_question",
+      "reward": 0.45,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 13.01
+    },
+    {
+      "task_id": "hospitality_048_split_bill_request",
+      "reward": 0.45,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 8.29
+    },
+    {
+      "task_id": "hospitality_093_directions_request",
+      "reward": 0.4,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 6.75
+    },
+    {
+      "task_id": "hospitality_010_squeeze_negotiation",
+      "reward": 0.45,
+      "turns": 4,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 13.27
+    },
+    {
+      "task_id": "hospitality_074_dietary_vegan",
+      "reward": 0.45,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 12.41
+    },
+    {
+      "task_id": "hospitality_031_veterans_day_discount",
+      "reward": -0.30000000000000004,
+      "turns": 6,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 16.44
+    },
+    {
+      "task_id": "hospitality_063_quiet_table_request",
+      "reward": 0.30000000000000004,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 4.54
+    },
+    {
+      "task_id": "hospitality_094_dietary_low_sodium",
+      "reward": 0.6000000000000001,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 14.08
+    },
+    {
+      "task_id": "hospitality_089_catering_inquiry",
+      "reward": 0.55,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 5.56
+    },
+    {
+      "task_id": "hospitality_085_review_threat",
+      "reward": 1.5750000000000002,
+      "turns": 8,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 20.27
+    },
+    {
+      "task_id": "hospitality_017_gluten_allergy",
+      "reward": 0.5450000000000002,
+      "turns": 9,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 26.72
+    },
+    {
+      "task_id": "hospitality_042_wrong_soup_base",
+      "reward": 1.125,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 6.95
+    },
+    {
+      "task_id": "hospitality_051_kids_utensils",
+      "reward": 0.4,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.96
+    },
+    {
+      "task_id": "hospitality_083_loyalty_abuse_suspicion",
+      "reward": 0.30000000000000004,
+      "turns": 3,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.28
+    },
+    {
+      "task_id": "hospitality_061_proposal_request_understaffed",
+      "reward": 0.8250000000000001,
+      "turns": 3,
+      "done": true,
+      "escalated": true,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 16.27
+    },
+    {
+      "task_id": "hospitality_069_temperature_complaint",
+      "reward": 0.30000000000000004,
+      "turns": 2,
+      "done": true,
+      "escalated": false,
+      "error": null,
+      "reward_breakdown": {},
+      "duration_s": 7.23
+    }
+  ]
+}

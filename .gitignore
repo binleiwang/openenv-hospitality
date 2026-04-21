@@ -1,0 +1,47 @@
+# Secrets / local env
+.env
+.env.*
+*.key
+*.pem
+
+# Backup / swap files
+*.bak
+*.orig
+*.swp
+*~
+
+# Scratch area — personal notes, drafts, competition materials, logs
+scratch/
+
+# Claude Code local state
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# Eval outputs — uncomment if you want to keep baseline JSONs public
+# eval_results/
