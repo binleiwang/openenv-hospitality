@@ -89,43 +89,102 @@ print(f"LOCAL_BASE: {LOCAL_BASE}")
 # Only run this cell ONCE per instance (pip is idempotent anyway).
 
 # %%
-# Upgrade build tooling first so editable-or-not install works on stock Lambda image
+# ─────────────────────────────────────────────────────────────
+# Full audit of pin rationale (lessons from 3 prior install failures):
+#
+#   torch==2.10.0       Lambda stock image has 2.10; keep it. Don't let
+#                       torchvision>=0.25 drift torch to 2.11 (unsloth caps
+#                       torch<2.11.0).
+#   torchvision==0.25.0 Required by torch 2.10. Stock image has 0.22.
+#   numpy==1.26.4       Ubuntu 22.04 system numpy is 1.21.x, lacks modern
+#                       __class_getitem__ support. transformers 4.51 needs 1.26+.
+#   Pillow==10.4.0      Ubuntu 22.04 system PIL is 7.x, lacks Image.Resampling
+#                       (added in PIL 9.0). transformers.image_utils crashes.
+#   transformers==4.51.3  Range >=4.51.3,<=5.5.0 pulls 4.5x which has new
+#                       nested np.ndarray[np.ndarray[...]] annotations that
+#                       don't eval on older numpy. 4.51.3 is Colab-tested.
+#   trl==0.18.2         Minimum that satisfies unsloth 2026.4.6; API is
+#                       processing_class-based, matches our notebook.
+#   accelerate==1.6.0   Colab-tested. 1.13 (auto-installed by unsloth) works
+#                       but not guaranteed stable with trl 0.18.2.
+#   bitsandbytes==0.46.1  Latest stable as of 2026Q2.
+#   pydantic==2.10.6    Colab-tested. Openenv-core 0.2.3 requires 2.10.x.
+#   datasets==3.6.0     Colab-tested.
+#   openenv-core==0.2.3 Colab-tested.
+#   unsloth==2026.4.6   Latest as of now. Needs trl>=0.18.2 and torch<2.11.
+# ─────────────────────────────────────────────────────────────
+
+# Upgrade build tooling first (editable installs, PEP 660)
 !pip install -q --upgrade pip setuptools wheel
 
-# Wipe legacy trl pin (Colab-era trl==0.15.2 blocks modern unsloth >= 0.18.2 req)
-!pip uninstall -y -q trl
+# Nuke legacy versions that survived earlier install attempts
+!pip uninstall -y -q trl transformers accelerate || true
 
-# Torch 2.10 + matching torchvision. Lambda's stock image has torch 2.10 but
-# torchvision 0.22 (mismatch). We pin BOTH explicitly so pip doesn't drift
-# torch up to 2.11 (unsloth caps torch<2.11.0).
+# --- Core numerics stack (pinned exactly, installed first) ---
+!pip install -q "numpy==1.26.4" "Pillow==10.4.0"
 !pip install -q "torch==2.10.0" "torchvision==0.25.0"
 
-# Modern Pillow — system /usr/lib PIL is 7.x and lacks Image.Resampling
-# (transformers.image_utils crashes on import without this). User-level
-# Pillow 10+ takes precedence via ~/.local site-packages.
-!pip install -q --upgrade "Pillow>=10.0.0"
-
-# Unsloth (PyPI stable, not the git+https variant — git fragment fails on modern pip)
+# --- Unsloth (latest PyPI, not git+https which has #egg fragment bug) ---
 !pip install -q unsloth==2026.4.6
 
-# Core training stack. NOTE: Colab pipeline used trl==0.15.2 (ancient), but modern
-# unsloth requires trl>=0.18.2. Our SFTTrainer / GRPOTrainer API usage is
-# compatible with both (uses `processing_class`, standard SFTConfig fields).
-!pip install -q "trl>=0.18.2,<=0.24.0" "transformers>=4.51.3,<=5.5.0" "accelerate" "bitsandbytes"
-!pip install -q "pydantic>=2.10.6" "pydantic-core>=2.27.2"
-!pip install -q "datasets>=3.0"
+# --- Training stack: EXACT pins, no ranges ---
+!pip install -q "transformers==4.51.3" "trl==0.18.2" "accelerate==1.6.0" "bitsandbytes==0.46.1"
+!pip install -q "pydantic==2.10.6" "pydantic-core==2.27.2"
+!pip install -q "datasets==3.6.0"
 
-# Env server + client runtime
-!pip install -q "openenv-core>=0.2.2" fastapi "uvicorn[standard]" httpx nest_asyncio
+# --- Env server + client runtime ---
+!pip install -q "openenv-core==0.2.3" fastapi "uvicorn[standard]" httpx nest_asyncio
 
-# Install hospitality_env itself (non-editable to avoid PEP 660 issue)
+# --- Install hospitality_env itself (non-editable, avoids PEP 660 issue) ---
 !pip install --no-deps -q /home/ubuntu/openenv-hospitality/hospitality_env/
 
-# Sanity: can we import?
-import unsloth, torch, hospitality_env
+# --- Post-install verification (fail LOUD if any pin drifted) ---
+import importlib, sys
+
+# If kernel wasn't restarted after an earlier failed install, stale modules
+# may still be loaded. Force-reload the critical ones.
+for _mod in ("transformers", "trl", "accelerate", "unsloth", "numpy", "PIL"):
+    if _mod in sys.modules:
+        try:
+            importlib.reload(sys.modules[_mod])
+        except Exception:
+            pass  # some fail reload; kernel restart is the canonical fix
+
+import unsloth, torch, transformers, trl, accelerate, numpy, PIL
+import hospitality_env
 from hospitality_env import HospitalityAction
-print(f"unsloth {unsloth.__version__} | torch {torch.__version__} "
-      f"| cuda {torch.cuda.is_available()} | hospitality_env OK")
+
+# Strict assertions — if ANY of these fail, we're building on sand
+_versions = {
+    "torch":        torch.__version__,
+    "torchvision":  __import__("torchvision").__version__,
+    "numpy":        numpy.__version__,
+    "Pillow":       PIL.__version__,
+    "transformers": transformers.__version__,
+    "trl":          trl.__version__,
+    "accelerate":   accelerate.__version__,
+    "unsloth":      unsloth.__version__,
+}
+print("Installed versions:")
+for k, v in _versions.items():
+    print(f"  {k:14s} {v}")
+
+# Hard expectations (prints, doesn't crash — kernel restart may be needed)
+_expect = {
+    "torch":        "2.10.",
+    "transformers": "4.51.3",
+    "trl":          "0.18.2",
+    "unsloth":      "2026.4.6",
+    "numpy":        "1.26.",
+    "Pillow":       "10.",
+}
+_mismatches = [k for k, prefix in _expect.items() if not _versions[k].startswith(prefix)]
+if _mismatches:
+    print(f"\n⚠️  Version mismatch: {_mismatches}")
+    print("   → Kernel → Restart Kernel, then re-run this cell.")
+else:
+    print(f"\n✓ All pins correct. CUDA: {torch.cuda.is_available()}, "
+          f"device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'none'}")
 
 # %% [markdown]
 # ## 2b. HuggingFace login + rebuild SFT dataset
@@ -199,12 +258,16 @@ nest_asyncio.apply()
 # ## 3. Launch the env server
 
 # %%
-import subprocess, time, httpx
+import subprocess, time, httpx, sys
 
+# Use sys.executable so the subprocess inherits THIS kernel's Python + site-packages.
+# A bare "python" on Lambda resolves to /usr/bin/python3 (system), which does NOT
+# have our pip-installed hospitality_env / uvicorn / fastapi — the server would
+# silently fail to import. sys.executable is the canonical fix.
 server_proc = subprocess.Popen(
-    ["python", "-m", "uvicorn", "hospitality_env.server.app:app",
+    [sys.executable, "-m", "uvicorn", "hospitality_env.server.app:app",
      "--host", "127.0.0.1", "--port", "8000"],
-    stdout=subprocess.DEVNULL,
+    stdout=subprocess.PIPE,
     stderr=subprocess.PIPE,
     cwd="/home/ubuntu/openenv-hospitality",
 )
@@ -216,8 +279,17 @@ for _ in range(30):
     except Exception:
         time.sleep(1)
 else:
-    err = server_proc.stderr.read().decode(errors="ignore")[-2000:]
-    raise RuntimeError(f"Server failed. stderr tail:\n{err}")
+    # Drain whatever the server emitted before giving up
+    try:
+        out_tail = server_proc.stdout.read(4000).decode(errors="ignore") if server_proc.stdout else ""
+        err_tail = server_proc.stderr.read(4000).decode(errors="ignore") if server_proc.stderr else ""
+    except Exception:
+        out_tail, err_tail = "", ""
+    raise RuntimeError(
+        f"Server failed to come up in 30s.\n"
+        f"stdout tail:\n{out_tail[-2000:]}\n"
+        f"stderr tail:\n{err_tail[-2000:]}"
+    )
 
 # %% [markdown]
 # ## 4. Load model — H100 uses bf16-native
@@ -291,6 +363,7 @@ sft_config = SFTConfig(
     save_strategy="epoch",
     bf16=True,
     dataset_text_field="text",
+    max_seq_length=MAX_SEQ_LENGTH,   # trl 0.18+ defaults to 1024 if unset → truncates aggressively
     packing=False,
     report_to="none",
     seed=SEED,
@@ -728,7 +801,18 @@ rft_ds = Dataset.from_list(combined_rows).map(_format, remove_columns=["messages
 
 # %%
 # --- RFT training: 1 epoch at lower LR (avoid overfitting Phase 4 into RFT) ---
+# State transition: rollout collection ran in inference mode (for_inference flips
+# requires_grad off on LoRA adapters). We must explicitly flip back, otherwise
+# SFTTrainer gets a model with no trainable params → silently no-op train.
 FastLanguageModel.for_training(model)
+model.train()
+# Paranoia check: at least one LoRA adapter parameter must be trainable
+_n_trainable = sum(p.requires_grad for p in model.parameters())
+assert _n_trainable > 0, (
+    "No trainable parameters after for_training(). "
+    "LoRA adapters may not have been re-enabled. Restart kernel."
+)
+print(f"RFT ready: {_n_trainable} trainable tensors, model.training={model.training}")
 
 rft_config = SFTConfig(
     output_dir=f"{LOCAL_BASE}/checkpoints_rft",
@@ -742,6 +826,7 @@ rft_config = SFTConfig(
     save_strategy="epoch",
     bf16=True,
     dataset_text_field="text",
+    max_seq_length=MAX_SEQ_LENGTH,
     packing=False,
     report_to="none",
     seed=SEED,
@@ -940,6 +1025,9 @@ def grpo_reward_fn(prompts, completions, **kwargs):
 # %%
 # --- GRPO smoke config: 10 steps, K=4 rollouts per prompt ---
 FastLanguageModel.for_training(model)
+model.train()
+assert sum(p.requires_grad for p in model.parameters()) > 0, \
+    "No trainable params before GRPO. Restart kernel."
 
 grpo_config = GRPOConfig(
     output_dir=f"{LOCAL_BASE}/checkpoints_grpo",
