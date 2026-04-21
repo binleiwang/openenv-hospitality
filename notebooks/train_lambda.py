@@ -70,6 +70,17 @@ os.makedirs(f"{LOCAL_BASE}/eval", exist_ok=True)
 # CUDA memory fragmentation guard (learned from OOM saga — see §负零点负一)
 os.environ["PYTORCH_ALLOC_CONF"] = "expandable_segments:True"
 
+# Lambda's stock image ships TF + Keras 3 + JAX + Flax pre-installed globally.
+# transformers.modeling_tf_utils eagerly probes Keras and refuses Keras 3;
+# the import chain then dies with "please install tf-keras". We don't use any
+# of these frameworks — tell transformers to skip the TF/JAX/Flax code paths
+# entirely. Must be set BEFORE `import transformers`.
+os.environ["USE_TF"] = "0"
+os.environ["USE_TORCH"] = "1"
+os.environ["USE_JAX"] = "0"
+os.environ["USE_FLAX"] = "0"
+os.environ["TRANSFORMERS_NO_ADVISORY_WARNINGS"] = "1"
+
 print(f"MODEL_NAME: {MODEL_NAME}")
 print(f"HUB_REPO:   {HUB_REPO}")
 print(f"SFT_PATH:   {SFT_PATH}")
@@ -119,6 +130,11 @@ print(f"LOCAL_BASE: {LOCAL_BASE}")
 
 # Nuke legacy versions that survived earlier install attempts
 !pip uninstall -y -q trl transformers accelerate || true
+
+# Nuke TF/Keras/JAX/Flax — Lambda stock has these pre-installed and they
+# actively BREAK transformers import (Keras 3 vs modeling_tf_utils). We
+# never use them. Belt-and-suspenders with the USE_TF=0 env var above.
+!pip uninstall -y -q tensorflow tensorflow-cpu tensorflow-gpu keras tf-keras jax jaxlib flax || true
 
 # --- Core numerics stack (pinned exactly, installed first) ---
 !pip install -q "numpy==1.26.4" "Pillow==10.4.0"
