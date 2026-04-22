@@ -1,0 +1,1641 @@
+{
+  "model": "unsloth/gemma-2-9b-it-bnb-4bit",
+  "sft": false,
+  "eval_set": "stratified_v3",
+  "n_eval": 20,
+  "claude_on_same_eval": 0.314,
+  "freeze_count": 16,
+  "results": [
+    {
+      "task_id": "hospitality_062_graduation_dinner",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "My daughter just graduated from UC Berkeley! We want to book a celebration dinner for 15 family members this Friday at 6pm.",
+          "raw_response": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "., extra spicy, no salt).\",\n    \"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "host_phone"
+    },
+    {
+      "task_id": "hospitality_061_proposal_request",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "I'm planning to propose to my girlfriend at your restaurant next Saturday at 7pm. Can you help make it special?",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {\n    \"description\": \"",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current ro",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {\n    \"description\": \"",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current ro",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {\n    \"description\": \"",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current ro",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {\n    \"description\": \"",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current ro",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {\n    \"description\": \"",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current ro",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {\n    \"description\": \"",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current ro",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {\n    \"description\": \"",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current ro",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {\n    \"description\": \"",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current ro",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "host_phone"
+    },
+    {
+      "task_id": "hospitality_025_birthday_cake_storage",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "I'm bringing a birthday cake for our party tonight. How do you store cakes? Mine is an ice cream cake.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "host_phone"
+    },
+    {
+      "task_id": "hospitality_013_patio_request",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "The weather is beautiful. We want to sit on the patio. I don't care if there's no server; we'll wait. Why force us inside?",
+          "raw_response": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"des",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"des",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"des",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"des",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"des",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"des",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"des",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"des",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "host_seating"
+    },
+    {
+      "task_id": "hospitality_046_bill_calculation_error",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "There's a Sapporo Beer on our bill but we never ordered alcohol. We don't drink!",
+          "raw_response": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get th",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "server_billing"
+    },
+    {
+      "task_id": "hospitality_059_anniversary_special",
+      "reward": 0.275,
+      "turns": 2,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "We're celebrating our 25th wedding anniversary tonight. Do you do anything special for anniversaries?",
+          "raw_response": "_details\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {\n    \"description\": \"Get the r",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "_details\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n   ",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "_details\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {\n    \"description\": \"Get the r",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "_details\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n   ",
+          "step_reward": 0.275,
+          "done": true
+        }
+      ],
+      "category": "server_celebration"
+    },
+    {
+      "task_id": "hospitality_045_shrimp_prep_request",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "Can the kitchen help peel and devein the shrimp for us? My elderly mother has arthritis and can't do it herself, and I'm not good at it either.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": ").\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "server_food_issue"
+    },
+    {
+      "task_id": "hospitality_101_gluten_birthday_heartbreak",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "I have celiac disease. I know you said only plain water is safe, but I didn't want that - it has no flavor. Now everyone at my friend's birthday party is enjoying the hot pot and I'm just sitting here",
+          "raw_response": " \"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"para",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " \"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"para",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " \"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"para",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " \"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"para",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " \"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"para",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " \"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"para",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " \"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"para",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " \"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"para",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"Request the kitchen to prepare a dish with special instructions.\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_instructions\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "server_food_safety"
+    },
+    {
+      "task_id": "hospitality_076_kosher_inquiry",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "Do you have any kosher options? Is there any pork in your kitchen?",
+          "raw_response": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "server_food_safety"
+    },
+    {
+      "task_id": "hospitality_058_manager_request",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "I don't want to explain again. Just get me your manager. NOW.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "server_incident"
+    },
+    {
+      "task_id": "hospitality_011_authority_limit",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "You spilled hot oil on my designer jacket! I want 50% off my bill at minimum!",
+          "raw_response": "\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situation.\",\n    \"parameters\": {}\n  },\n  \"get_service",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situation.\",\n    \"parameters\": {}\n  },\n  \"get_service",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situation.\",\n    \"parameters\": {}\n  },\n  \"get_service",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situation.\",\n    \"parameters\": {}\n  },\n  \"get_service",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situation.\",\n    \"parameters\": {}\n  },\n  \"get_service",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situation.\",\n    \"parameters\": {}\n  },\n  \"get_service",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situation.\",\n    \"parameters\": {}\n  },\n  \"get_service",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situation.\",\n    \"parameters\": {}\n  },\n  \"get_service",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "server_incident"
+    },
+    {
+      "task_id": "hospitality_015_food_poisoning_claim",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "My family all got sick after eating here yesterday. We had diarrhea and vomiting all night. Your food made us sick! I want a full refund and an explanation.",
+          "raw_response": " etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the current incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "I understand, but I'm still not satisfied. What else can you do?",
+          "raw_response": " etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the current incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "I understand, but I'm still not satisfied. What else can you do?",
+          "raw_response": " etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the current incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "I understand, but I'm still not satisfied. What else can you do?",
+          "raw_response": " etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the current incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "I understand, but I'm still not satisfied. What else can you do?",
+          "raw_response": " etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the current incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "I understand, but I'm still not satisfied. What else can you do?",
+          "raw_response": " etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the current incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "I understand, but I'm still not satisfied. What else can you do?",
+          "raw_response": " etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the current incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "I understand, but I'm still not satisfied. What else can you do?",
+          "raw_response": " etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the current incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_reservation_policy\": {",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "etc.).\",\n    \"parameters\": {\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the current staff authority policy for th",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "server_incident"
+    },
+    {
+      "task_id": "hospitality_073_lost_phone",
+      "reward": 0.4,
+      "turns": 2,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "I think I left my iPhone at table A5 last night. Have you found any phones?",
+          "raw_response": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situation.\",\n    \"pa",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situation.\",\n    \"pa",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get th",
+          "step_reward": 0.4,
+          "done": true
+        }
+      ],
+      "category": "server_misc"
+    },
+    {
+      "task_id": "hospitality_063_quiet_table_request",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "My mother has hearing difficulties. Can we get a table in a quieter area away from the kitchen?",
+          "raw_response": "        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "server_misc"
+    },
+    {
+      "task_id": "hospitality_097_service_dog",
+      "reward": 0.4,
+      "turns": 2,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "I have a service dog. Are service animals allowed in your restaurant?",
+          "raw_response": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get th",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get th",
+          "step_reward": 0.4,
+          "done": true
+        }
+      ],
+      "category": "server_misc"
+    },
+    {
+      "task_id": "hospitality_045_shrimp_prep_walkout",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "Can the kitchen help peel and devein the shrimp for us? My elderly mother has severe arthritis and she really can't do it herself.",
+          "raw_response": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_promotion_stacking",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority ",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_promotion_stacking",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority ",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_promotion_stacking",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority ",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_promotion_stacking",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority ",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_promotion_stacking",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority ",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_promotion_stacking",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority ",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_promotion_stacking",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority ",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  \"get_promotion_stacking",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"parameters\": {\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      },\n      \"preparation_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority ",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "server_misc"
+    },
+    {
+      "task_id": "hospitality_083_loyalty_abuse_suspicion",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "It's my birthday! Can I get the birthday voucher? Customer used birthday voucher last month.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situat",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situat",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situat",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situat",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situat",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situat",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situat",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy for the current situat",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "server_promotion"
+    },
+    {
+      "task_id": "hospitality_012_points_redemption",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "I want to use my 12,500 points to get that Mug everyone loves. I've been saving up!",
+          "raw_response": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_poli",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_poli",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_poli",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_poli",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_poli",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_poli",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_poli",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"special_request\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_poli",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "server_promotion"
+    },
+    {
+      "task_id": "hospitality_034_birthday_voucher_expired",
+      "reward": 0.0,
+      "turns": 8,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "I want to use my birthday voucher. My birthday was January 15th and I got a $20 voucher. Today is February 5th.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 2,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 3,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 4,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 5,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 6,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 7,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": " {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\":",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "{\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"descri",
+          "step_reward": 0.0,
+          "done": false
+        }
+      ],
+      "category": "server_promotion"
+    },
+    {
+      "task_id": "hospitality_051_kids_utensils",
+      "reward": 0.275,
+      "turns": 2,
+      "tool_calls": 0,
+      "trace": [
+        {
+          "turn": 0,
+          "customer_msg_preview": "Do you have kids utensils? My 3-year-old can't use regular chopsticks.",
+          "raw_response": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.0,
+          "done": false
+        },
+        {
+          "turn": 1,
+          "customer_msg_preview": "Okay, please continue.",
+          "raw_response": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"Get the staff authority policy for the current role.\",\n    \"parameters\": {}\n  },\n  \"get_incident_severity_policy\": {\n    \"description\": \"Get the incident severity policy.\",\n    \"parameters\": {}\n  },\n  ",
+          "tool_name": "",
+          "tool_args": {},
+          "message": "\"type\": \"str\",\n        \"required\": true\n      },\n      \"item_name\": {\n        \"type\": \"str\",\n        \"required\": true\n      },\n      \"order_id\": {\n        \"type\": \"Optional\",\n        \"default\": null,\n        \"required\": false\n      }\n    }\n  },\n  \"get_staff_authority_policy\": {\n    \"description\": \"G",
+          "step_reward": 0.275,
+          "done": true
+        }
+      ],
+      "category": "server_special_policy"
+    }
+  ],
+  "per_category": [
+    {
+      "category": "host_phone",
+      "n": 3,
+      "base": 0.0,
+      "claude": 0.18166666666666667,
+      "delta": -0.18166666666666667,
+      "verdict": "LOSE"
+    },
+    {
+      "category": "host_seating",
+      "n": 1,
+      "base": 0.0,
+      "claude": 0.17500000000000004,
+      "delta": -0.17500000000000004,
+      "verdict": "LOSE"
+    },
+    {
+      "category": "server_billing",
+      "n": 1,
+      "base": 0.0,
+      "claude": 0.45,
+      "delta": -0.45,
+      "verdict": "LOSE"
+    },
+    {
+      "category": "server_celebration",
+      "n": 1,
+      "base": 0.275,
+      "claude": 0.275,
+      "delta": 0.0,
+      "verdict": "MATCH"
+    },
+    {
+      "category": "server_food_issue",
+      "n": 1,
+      "base": 0.0,
+      "claude": 1.0750000000000002,
+      "delta": -1.0750000000000002,
+      "verdict": "LOSE"
+    },
+    {
+      "category": "server_food_safety",
+      "n": 2,
+      "base": 0.0,
+      "claude": -0.09999999999999998,
+      "delta": 0.09999999999999998,
+      "verdict": "BEAT"
+    },
+    {
+      "category": "server_incident",
+      "n": 3,
+      "base": 0.0,
+      "claude": 0.375,
+      "delta": -0.375,
+      "verdict": "LOSE"
+    },
+    {
+      "category": "server_misc",
+      "n": 4,
+      "base": 0.2,
+      "claude": 0.45999999999999996,
+      "delta": -0.25999999999999995,
+      "verdict": "LOSE"
+    },
+    {
+      "category": "server_promotion",
+      "n": 3,
+      "base": 0.0,
+      "claude": 0.23833333333333337,
+      "delta": -0.23833333333333337,
+      "verdict": "LOSE"
+    },
+    {
+      "category": "server_special_policy",
+      "n": 1,
+      "base": 0.275,
+      "claude": 0.275,
+      "delta": 0.0,
+      "verdict": "MATCH"
+    }
+  ],
+  "summary": {
+    "mean": 0.0675,
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.4,
+    "mean_turns": 6.8,
+    "n": 20,
+    "seed": 42
+  }
+}

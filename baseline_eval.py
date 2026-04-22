@@ -50,6 +50,7 @@ async def run_task(
     anthropic: AsyncAnthropic,
     model: str,
     task_id: str,
+    save_transcript: bool = False,
 ) -> Dict[str, Any]:
     """Play one episode with Claude as the agent. Returns per-task record."""
     t_start = time.time()
@@ -104,7 +105,7 @@ async def run_task(
             final_meta = obs.get("metadata", {}) or {}
             break
 
-    return {
+    record = {
         "task_id": task_id,
         "reward": last_reward if last_reward is not None else 0.0,
         "turns": turns_used,
@@ -114,6 +115,11 @@ async def run_task(
         "reward_breakdown": final_meta,
         "duration_s": round(time.time() - t_start, 2),
     }
+    if save_transcript:
+        # Full conversation (system + alternating user/assistant) for SFT.
+        record["system_prompt"] = SYSTEM_PROMPT
+        record["messages"] = history
+    return record
 
 
 # ---------- Orchestration ----------
@@ -145,7 +151,8 @@ async def main_async(args):
         async with HospitalityEnv(base_url=args.base_url) as client:
             print(f"[{i}/{len(chosen)}] {tid} ...", end=" ", flush=True)
             try:
-                rec = await run_task(client, anthropic, args.model, tid)
+                rec = await run_task(client, anthropic, args.model, tid,
+                                     save_transcript=args.save_transcripts)
             except Exception as e:
                 rec = {"task_id": tid, "error": f"fatal: {e}", "reward": 0.0,
                        "turns": 0, "done": False, "escalated": False,
@@ -186,6 +193,8 @@ def main():
     p.add_argument("--base-url", default=DEFAULT_LOCAL_URL)
     p.add_argument("--task-ids", default="", help="Comma-separated task ids (overrides --n)")
     p.add_argument("--out-dir", default="eval_results")
+    p.add_argument("--save-transcripts", action="store_true",
+                   help="Save full message history per task (for SFT data)")
     args = p.parse_args()
     asyncio.run(main_async(args))
 

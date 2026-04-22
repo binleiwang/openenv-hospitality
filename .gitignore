@@ -45,3 +45,8 @@ build/
 
 # Eval outputs — uncomment if you want to keep baseline JSONs public
 # eval_results/
+
+# Published artifacts (not in git — on HF Hub)
+# Model checkpoints are pushed to https://huggingface.co/binleiwang/qwen2.5-7b-hospitality-sft
+checkpoints/
+
