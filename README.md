@@ -292,7 +292,7 @@ Three publicly hosted artifacts accompany this repo:
 
 | Artifact | URL | Notes |
 |---|---|---|
-| **Env Space** (OpenEnv FastAPI, Docker) | [`huggingface.co/spaces/binleiwang/hospitality-env`](https://huggingface.co/spaces/binleiwang/hospitality-env) | Docker-backed Space on HF free tier. Exposes `/reset`, `/step`, `/state`, `/schema`, `/docs`, `/ws`. **Cold-start note:** the Space idles after ~48h of inactivity; first request on a cold container boots in ~30–60s, subsequent requests are immediate. This is standard HF free-tier Docker behavior — the container resumes automatically on the next request, no manual intervention required. |
+| **Env Space** (OpenEnv FastAPI, Docker) | [`huggingface.co/spaces/binleiwang/hospitality_env`](https://huggingface.co/spaces/binleiwang/hospitality_env) | Docker-backed Space on HF free tier. Exposes `/reset`, `/step`, `/state`, `/schema`, `/docs`, `/ws`. **Cold-start note:** the Space idles after ~48h of inactivity; first request on a cold container boots in ~30–60s, subsequent requests are immediate. This is standard HF free-tier Docker behavior — the container resumes automatically on the next request, no manual intervention required. |
 | **Blog** (static) | [`binleiwang-hospitality-env-blog.static.hf.space`](https://binleiwang-hospitality-env-blog.static.hf.space/) | Static Space — file serving only, no runtime, always available. |
 | **v1 LoRA adapter** | [`huggingface.co/binleiwang/qwen2.5-7b-hospitality-sft`](https://huggingface.co/binleiwang/qwen2.5-7b-hospitality-sft) | Null-result model card. Load via `PeftModel.from_pretrained`. |
 
