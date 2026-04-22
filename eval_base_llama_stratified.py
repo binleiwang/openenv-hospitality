@@ -255,7 +255,7 @@ print(f"\nStratified eval set: {len(EVAL_IDS)} tasks, "
 for cat, n in sorted(Counter(TID_TO_CAT[tid] for tid in EVAL_IDS).items()):
     print(f"  {cat:24s} {n}")
 
-print(f"\nRunning BASE Qwen2.5-7B-Instruct on {len(EVAL_IDS)} stratified tasks ...")
+print(f"\nRunning BASE {BASE_MODEL} on {len(EVAL_IDS)} stratified tasks ...")
 results = []
 for tid in EVAL_IDS:
     r = asyncio.run(rollout_v3(tid))
