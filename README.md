@@ -286,6 +286,18 @@ The null isn't about effort. I ran 6 SFT evaluations across 3 families × 2 capa
 
 ---
 
+## Deployment artifacts
+
+Three publicly hosted artifacts accompany this repo:
+
+| Artifact | URL | Notes |
+|---|---|---|
+| **Env Space** (OpenEnv FastAPI, Docker) | [`huggingface.co/spaces/binleiwang/hospitality-env`](https://huggingface.co/spaces/binleiwang/hospitality-env) | Docker-backed Space on HF free tier. Exposes `/reset`, `/step`, `/state`, `/schema`, `/docs`, `/ws`. **Cold-start note:** the Space idles after ~48h of inactivity; first request on a cold container boots in ~30–60s, subsequent requests are immediate. This is standard HF free-tier Docker behavior — the container resumes automatically on the next request, no manual intervention required. |
+| **Blog** (static) | [`binleiwang-hospitality-null-result-blog.static.hf.space`](https://binleiwang-hospitality-null-result-blog.static.hf.space/) | Static Space — file serving only, no runtime, always available. |
+| **v1 LoRA adapter** | [`huggingface.co/binleiwang/qwen2.5-7b-hospitality-sft`](https://huggingface.co/binleiwang/qwen2.5-7b-hospitality-sft) | Null-result model card. Load via `PeftModel.from_pretrained`. |
+
+---
+
 ## Connection to prior work
 
 This environment extends the `hospitality` domain that the same author contributed to Sierra Research's [$\tau^2$-bench](https://github.com/sierra-research/tau2-bench) earlier in 2026 (AgentBeats Special Mention). The V0 on $\tau^2$ was **benchmark-grade** — deterministic evaluation over 116 static task definitions. This V1 on OpenEnv is the **env-grade extension** — training loop, reward surface, SFT pipeline, multi-family baseline diagnostics. The jump from benchmark to environment is where most of the structural limits surface, and this submission documents that transition longitudinally.
