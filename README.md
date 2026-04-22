@@ -256,20 +256,31 @@ The generalization is the part I care about most: vertical-composite domains —
 
 ## V2 roadmap — 8 limitations → fixes (P0–P3)
 
-This is the canonical V2 plan. Eight structural limitations surfaced during V1, each paired with the V2 fix and ordered by priority. As much of this submission is about what the environment can't train as what it enables — so this table is the single most load-bearing thing in the whole roadmap.
+This is the canonical V2 plan. As much of this submission is about what the environment can't train as what it enables — so this section is the single most load-bearing thing in the whole roadmap.
+
+### Two independent, additive axes
+
+V2 is not a single problem. The dev-notes diagnosis splits into two independent dimensions:
+
+- **Data-scale axis** — V1 has 3.6 tasks/category vs ImageNet's ~1,300 images/class. Addressed by the 10–50× programmatic task generation mentioned in [What V2 changes](#what-v2-changes) above.
+- **Schema-design axis** — 8 structural limitations in the env's policy / reward / simulator / metric layers, enumerated below.
+
+These are **additive, not substitutable**. Even at 100 tasks/category, if the reward surface is still terminal-only (P0-2), SFT still can't learn multi-step orchestration and GRPO still can't find intra-group variance. Even at perfect reward shaping, if per-category coverage stays at 3.6, within-class invariance doesn't emerge. **V2 must fix both axes.** The data axis is the size of the training signal; the schema axis is its shape. The table below is the schema axis.
+
+### The 8 schema-level limitations, by priority
 
 | Priority | Limitation | V2 fix |
 |---|---|---|
-| **P0** | Policy is prose, not machine-checkable — agents must interpret 460 lines of natural language | Policy DSL + automated assertion generation |
-| **P0** | Reward is terminal-only; partial tool progress is invisible | Per-step reward signal on each verified tool call |
-| **P1** | Inaction is never penalized (see Gemma `server_food_safety` result) | Explicit "failure to act" negative terms on stateful categories |
-| **P1** | Benchmark-scale data (3.6 tasks/category) — not env-scale (ImageNet: ~1300/class) | Programmatic task generation targeting 10–50× current per-category coverage |
-| **P2** | Ritual assertions (hardcoded policy acknowledgments) inflate scores when agent parrots policy phrases | Trace-based assertion verification (did the agent *do* the thing, not just say it) |
-| **P2** | Scripted user simulator lacks persona / emotional variability | LLM-judge user simulator with persona sampling |
-| **P3** | Rollout-nudge bias — SFT data collection prompt subtly differs from eval prompt | Unified prompt template across collection + eval + training |
-| **P3** | `server_misc` (33/116) is a taxonomy smell | Split into functional sub-categories |
+| **P0-1** (policy) | Policy is natural-language prose pasted into the system prompt; no 1:1 mapping between policy clauses, tools, and rubric assertions. Agents guess tool names from semantic cues and fail. | Structured policy records with `policy_id ↔ required_tools ↔ rubric_binding`. Policy lookup becomes an explicit tool call, not prose interpretation. |
+| **P0-2** (reward) | Terminal-only reward — an 8-turn task returns one scalar at the end. **This is the specific mechanism behind our GRPO collapse:** rollout-internal reward variance is zero, so group advantage `(r_i − mean)/std` has a zero denominator. Sparse-gradient problem also blocks SFT credit assignment. | `process_assertions` per turn (+0.1 each verified sub-action) layered on top of `terminal_assertions`. Per-turn reward gradient, non-degenerate group advantage. |
+| **P0-3** (reward) | Inaction is Pareto-optimal. Current shape: `correct → +x`, `wrong → −1.4`, `no action → 0`. Gemma's chat-only win on `server_food_safety` (+0.000 vs Claude's −0.100) is this shape exploited, not a bug in Gemma. | Per-category `inaction_floor: −0.3` when all process + terminal assertions fail **and** tool_calls == 0. Keeps a buffer above tool-spam's penalty but stops rewarding evasion. |
+| **P1-4** (policy) | Ritual "look up the policy" assertions — but the policy is already in the system prompt. The test is "did the agent perform the ceremony," not "does the agent know." Top shared failure mode for Qwen 7B / Llama / Gemma. | Either (a) move policy out of system prompt, expose only via a `query_policy()` tool (preferred — matches real-restaurant SOP where staff actually consults the handbook), or (b) drop the ritual assertions entirely. |
+| **P1-5** (simulator) | User simulator is one-way scripted: it has an *end-conversation* condition but no mid-trajectory correction. Agent goes off-rails → user waits silently → 8 turns → fail. Real customers prompt the correction; our simulator doesn't. | Add `nudge_policy` to the user simulator: when the agent has been silent or off-topic for 2 turns, inject "I still need you to {missing_action}" with some probability. Turns a cold test into a scaffolded env, makes multi-step learnable. |
+| **P1-6** (fairness) | Rollout script injects an env-external `[SYSTEM NUDGE]` after 2 tool-less turns. Biases the benchmark toward tool-active families (Llama, Qwen 14B), penalizes conservative families (Gemma, Qwen 7B). Confound on cross-family comparison — what we report as "Gemma vs Qwen" is partly "Gemma vs Qwen *after a nudge layer*." | Either remove the nudge (expose natural policy differences), or make it a per-task flag `allow_system_nudge: bool` so both "proactive" and "restrained" task types are benchmarked separately. |
+| **P2-7** (taxonomy) | `server_misc` (33 / 116 tasks) is "I don't know where to put it" — violates the `category = shared policy + tool + reward shape` invariant; breaks stratified sampling because misc has the largest within-category distribution shift. | Retire `server_misc`. Reclassify by downstream SOP: `accessibility_policy`, `lost_and_found`, `seating_preference`, etc. Each new category must share `relevant_policies`. |
+| **P2-8** (metric) | No human baseline. Claude's +0.314 is assumed to be the ceiling, but Claude is a proxy, not a domain expert. We don't know which tasks are genuinely hard, which have multiple valid solutions, or whether +0.314 is actually above or below an experienced server's score. | Per-task `human_baseline`: `{server_experienced: score, server_novice: score, time_median_seconds: int}` collected from n=3 real servers. "Deploy-worthy" becomes "matches experienced-server score," not "beats Claude." |
 
-Full analysis of each limitation with reproduction instructions lives in the accompanying [blog writeup](https://binleiwang-hospitality-null-result-blog.static.hf.space/).
+Full derivation of each limitation with the specific V1 rollout evidence is in `scratch/study_notes/03_dev_notes.md` §负零点陆. Accompanying blog writeup: [the compositional density problem](https://binleiwang-hospitality-null-result-blog.static.hf.space/).
 
 The null isn't about effort. I ran 6 SFT evaluations across 3 families × 2 capacity tiers, drove training loss 12.9× lower on the best recipe, and verified the same reward-surface problem from the GRPO side at two scales. The signal the environment needs isn't there in 40 imitation trajectories against a terminal-only reward over 11 thinly-sampled categories. V2 addresses the limitations above in priority order.
 
