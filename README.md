@@ -1,5 +1,7 @@
 # Hospitality RL Environment: A Hot Pot Restaurant Simulation
 
+> 📓 **Integrated submission notebook (with rendered outputs)**: [`submission.ipynb`](submission.ipynb) — read this first for the full story: env walkthrough, triple-family null result, per-category breakdown, GRPO collapse diagnosis, and V2 roadmap.
+
 An [OpenEnv](https://github.com/meta-pytorch/OpenEnv)-compatible reinforcement learning environment that simulates a full-service hot pot restaurant ("Berkeley Hot Pot"). The agent plays a restaurant server handling customer interactions over phone or in person — taking reservations, resolving complaints, checking allergy safety, applying discounts, and coordinating with the kitchen, host, and manager.
 
 Throughout this repo we refer to the project as **Hospitality Env** (short name) and **`hospitality_env`** (code identifier).
