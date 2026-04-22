@@ -40,10 +40,13 @@ Run-order plan on Lambda:
 # Phase 6: Qwen2.5-32B-Instruct-bnb-4bit (only if Phase 5 < 0.55)
 MODEL_NAME = "unsloth/Qwen2.5-7B-Instruct-bnb-4bit"
 
-# Hub repo name — v3 is the stratified-data run
-HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v3"  # Phase 5 (stratified)
-# HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v2"  # Phase 4 (threshold 0.5, undertrained)
-# HUB_REPO = "binleiwang/qwen2.5-14b-hospitality-sft"   # Phase 6 (if needed)
+# Hub repo name — v3.1 is the "Goldilocks" epoch-tuned run
+# v2 undertrained (loss 0.76, 3ep, 50 traj, LR 2e-4) → eval +0.133
+# v3 overfit    (loss 0.06, 6ep, 40 traj, LR 3e-4) → eval +0.104  (11/20 froze at turn 0)
+# v3.1 target: loss 0.20-0.30 (3ep, 40 traj, LR 3e-4) — the middle ground
+HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v3p1"
+# HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v3"  # prior overfit run
+# HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v2"  # prior undertrained run
 
 # v3: stratified SFT pool (per-category top-K, all 11 categories represented)
 # vs Phase 4: global threshold 0.5 had 0 host_seating examples → eval cold on that family
@@ -52,16 +55,18 @@ EVAL_IDS_PATH = "/home/ubuntu/openenv-hospitality/sft_data/stratified_eval_ids.j
 
 # Local artifact paths (Lambda ephemeral disk — must push to Hub before Terminate)
 LOCAL_BASE = "/home/ubuntu/hospitality"
-OUTPUT_DIR = f"{LOCAL_BASE}/adapter_v3"
-CHECKPOINT_DIR = f"{LOCAL_BASE}/checkpoints_v3"
-EVAL_OUT = f"{LOCAL_BASE}/eval/eval_heldout_v3.json"
+OUTPUT_DIR = f"{LOCAL_BASE}/adapter_v3p1"
+CHECKPOINT_DIR = f"{LOCAL_BASE}/checkpoints_v3p1"
+EVAL_OUT = f"{LOCAL_BASE}/eval/eval_heldout_v3p1.json"
 
-# Training config — tuned up from Phase 4 (loss stuck at 0.76 at step 18)
-# - 6 epochs not 3: gives ~48 optimizer steps (vs 18), enough for loss to converge
-# - LR 3e-4: slightly up from 2e-4 since 40-traj pool is smaller, need stronger updates
-# - warmup_ratio 0.03: don't waste steps on warmup in a short schedule
+# Training config — v3.1 = v3 with epochs halved (overfit fix)
+# - 3 epochs: 15 optimizer steps (vs v3's 30). v3 step 15 loss ≈ 0.18, so
+#   this run targets final loss in the 0.15-0.25 band — past v2's 0.76
+#   floor but before v3's memorization plateau.
+# - LR 3e-4: keep same as v3; the fix is schedule length, not step size.
+# - warmup_ratio 0.03: keep same (~0.5 step warmup, negligible).
 MAX_SEQ_LENGTH = 8192
-NUM_EPOCHS = 6
+NUM_EPOCHS = 3
 LEARNING_RATE = 3e-4
 WARMUP_RATIO = 0.03
 SEED = 42
@@ -665,8 +670,10 @@ print(f"Min/Max:  {min(rewards):+.3f} / {max(rewards):+.3f}")
 print(f"Mean turns: {st.mean([r['turns'] for r in valid]):.2f}")
 print(f"Claude Sonnet 4.5 on SAME stratified eval: +0.314  ← real target")
 print(f"Claude overall (116 tasks, inflated by ID bias): +0.604")
-print(f"v1 on old ID-biased eval:         +0.338")
-print(f"Phase 4 (v2) on old ID-biased:    +0.133  ← failed experiment")
+print(f"v1 on old ID-biased eval:         +0.338  (eval set not comparable)")
+print(f"v2 on stratified eval:            +0.133  (undertrained, loss 0.76)")
+print(f"v3 on stratified eval:            +0.104  (overfit, loss 0.06, 11/20 froze)")
+print(f"v3.1 target: > +0.15 and have the freeze-at-turn-0 count drop below 5")
 
 # Per-category breakdown — THIS is the diagnostic goldmine
 from collections import defaultdict as _dd
@@ -740,8 +747,9 @@ from huggingface_hub import HfApi, login
 # login()  # uncomment if not already logged in via CLI
 
 commit_msg = (
-    f"SFT 3ep + anti-loop prompt | 50 traj (threshold 0.5) | "
-    f"held-out eval {mean_reward:.3f} vs Claude 0.604"
+    f"SFT {NUM_EPOCHS}ep LR={LEARNING_RATE} | {sum(1 for _ in open(SFT_PATH))} traj "
+    f"(stratified per-category) | stratified eval {mean_reward:+.3f} "
+    f"vs Claude {0.314:+.3f} on same eval"
 )
 HfApi().upload_folder(
     folder_path=OUTPUT_DIR,
