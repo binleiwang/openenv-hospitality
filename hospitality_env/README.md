@@ -9,6 +9,12 @@ app_port: 8000
 base_path: /web
 tags:
   - openenv
+  - openenv-0.2.3
+  - rl-environment
+  - hospitality
+  - agent
+  - tool-use
+  - multi-turn
 ---
 
 # Hospitality RL Environment: A Hot Pot Restaurant Simulation
