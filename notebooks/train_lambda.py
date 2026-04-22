@@ -40,24 +40,30 @@ Run-order plan on Lambda:
 # Phase 6: Qwen2.5-32B-Instruct-bnb-4bit (only if Phase 5 < 0.55)
 MODEL_NAME = "unsloth/Qwen2.5-7B-Instruct-bnb-4bit"
 
-# Hub repo name — edit per phase
-HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v2"  # Phase 4
-# HUB_REPO = "binleiwang/qwen2.5-14b-hospitality-sft"   # Phase 5
-# HUB_REPO = "binleiwang/qwen2.5-32b-hospitality-sft"   # Phase 6
+# Hub repo name — v3 is the stratified-data run
+HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v3"  # Phase 5 (stratified)
+# HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v2"  # Phase 4 (threshold 0.5, undertrained)
+# HUB_REPO = "binleiwang/qwen2.5-14b-hospitality-sft"   # Phase 6 (if needed)
 
-# SFT data path (already built by build_sft_dataset.py)
-SFT_PATH = "/home/ubuntu/openenv-hospitality/sft_data/hospitality_sft_50.jsonl"
+# v3: stratified SFT pool (per-category top-K, all 11 categories represented)
+# vs Phase 4: global threshold 0.5 had 0 host_seating examples → eval cold on that family
+SFT_PATH = "/home/ubuntu/openenv-hospitality/sft_data/hospitality_sft_strat.jsonl"
+EVAL_IDS_PATH = "/home/ubuntu/openenv-hospitality/sft_data/stratified_eval_ids.json"
 
 # Local artifact paths (Lambda ephemeral disk — must push to Hub before Terminate)
 LOCAL_BASE = "/home/ubuntu/hospitality"
-OUTPUT_DIR = f"{LOCAL_BASE}/adapter"
-CHECKPOINT_DIR = f"{LOCAL_BASE}/checkpoints"
-EVAL_OUT = f"{LOCAL_BASE}/eval/eval_heldout.json"
+OUTPUT_DIR = f"{LOCAL_BASE}/adapter_v3"
+CHECKPOINT_DIR = f"{LOCAL_BASE}/checkpoints_v3"
+EVAL_OUT = f"{LOCAL_BASE}/eval/eval_heldout_v3.json"
 
-# Training config — DO NOT CHANGE between phases (Phase 4 = Phase 5 = 3 epoch, LR 2e-4)
+# Training config — tuned up from Phase 4 (loss stuck at 0.76 at step 18)
+# - 6 epochs not 3: gives ~48 optimizer steps (vs 18), enough for loss to converge
+# - LR 3e-4: slightly up from 2e-4 since 40-traj pool is smaller, need stronger updates
+# - warmup_ratio 0.03: don't waste steps on warmup in a short schedule
 MAX_SEQ_LENGTH = 8192
-NUM_EPOCHS = 3
-LEARNING_RATE = 2e-4
+NUM_EPOCHS = 6
+LEARNING_RATE = 3e-4
+WARMUP_RATIO = 0.03
 SEED = 42
 
 # %%
@@ -210,14 +216,25 @@ else:
           f"device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'none'}")
 
 # %% [markdown]
-# ## 2b. HuggingFace login + rebuild SFT dataset
+# ## 2b. HuggingFace login + rebuild STRATIFIED SFT dataset
 #
-# Login uses the token you pasted earlier (if not, run `huggingface-cli login`
-# in a terminal first). Then rebuild the 50-trajectory SFT pool from the
-# Claude Sonnet 4.5 baseline (threshold 0.5, covers ~40% of base scenarios
-# vs 28% for the old threshold-0.7 / 34-traj pool).
+# Phase 5 (v3) uses STRATIFIED data: per-category top-K from Claude baseline.
+#
+# Why stratified?  Phase 4 (threshold-0.5 global filter) produced +0.133 mean
+# reward — WORSE than v1 (+0.338). Diagnosis: the threshold filter drops
+# Claude's weak categories entirely (host_seating had 0 tasks above 0.5), so
+# the SFT model never sees those decision patterns and fails on them at eval.
+#
+# Fix: per-category top-K (k = max(2, floor(n*0.5))), no global threshold.
+# Even Claude's worst category (host_seating, max reward +0.50) contributes
+# 2 demonstrations. Pool size: ~40 trajectories, but all 11 categories covered.
+#
+# Also builds stratified eval set: 20% holdout per category, ~20 tasks total.
+# Claude on this NEW eval = +0.314 (NOT the +0.604 we were comparing against).
+# That earlier number was inflated by ID-order bias.
 
 # %%
+import sys, subprocess
 from huggingface_hub import whoami
 try:
     _who = whoami()
@@ -227,25 +244,33 @@ except Exception:
     raise
 
 # %%
-# Rebuild SFT data — idempotent, safe to re-run
-import subprocess
+# Build stratified data — idempotent, safe to re-run
 _build = subprocess.run(
-    ["python", "build_sft_dataset.py",
-     "--input", "eval_results/baseline_claude-sonnet-4-5_20260421_002809.json",
-     "--min-reward", "0.5",
-     "--output", "sft_data/hospitality_sft_50.jsonl"],
+    [sys.executable, "build_stratified_data.py"],
     cwd="/home/ubuntu/openenv-hospitality",
     capture_output=True, text=True,
 )
 print(_build.stdout)
 if _build.returncode != 0:
-    print(_build.stderr); raise RuntimeError("build_sft_dataset failed")
+    print(_build.stderr); raise RuntimeError("build_stratified_data failed")
 
-# Verify line count
-with open("/home/ubuntu/openenv-hospitality/sft_data/hospitality_sft_50.jsonl") as f:
-    _n = sum(1 for _ in f)
-print(f"SFT pool size: {_n} trajectories (expected ~50)")
-assert 40 <= _n <= 60, f"Unexpected SFT pool size {_n}"
+# Verify files
+import json as _json
+with open(SFT_PATH) as f:
+    _sft_n = sum(1 for _ in f)
+_eval_ids = _json.load(open(EVAL_IDS_PATH))
+print(f"\nStratified SFT pool: {_sft_n} trajectories")
+print(f"Stratified eval set: {len(_eval_ids)} tasks")
+assert 30 <= _sft_n <= 60, f"Unexpected SFT pool size {_sft_n}"
+assert 15 <= len(_eval_ids) <= 30, f"Unexpected eval size {len(_eval_ids)}"
+
+# Print category coverage for sanity
+_rows = [_json.loads(line) for line in open(SFT_PATH)]
+from collections import Counter
+_cat_dist = Counter(r["category"] for r in _rows)
+print(f"\nSFT pool category coverage ({len(_cat_dist)} categories):")
+for cat, n in sorted(_cat_dist.items()):
+    print(f"  {cat:24s} {n}")
 
 # %%
 # Stubs for vllm (trl 0.15.2 conditionally imports it; we don't actually use it)
@@ -381,7 +406,7 @@ sft_config = SFTConfig(
     gradient_accumulation_steps=8,
     learning_rate=LEARNING_RATE,
     lr_scheduler_type="cosine",
-    warmup_ratio=0.05,
+    warmup_ratio=WARMUP_RATIO,
     logging_steps=1,
     save_strategy="epoch",
     bf16=True,
@@ -511,7 +536,19 @@ from hospitality_env.client import HospitalityEnv
 
 TASKS_PATH = Path("/home/ubuntu/openenv-hospitality/hospitality_env/server/data/tasks.json")
 ALL_TASKS = json.load(open(TASKS_PATH))
-EVAL_IDS = [t["id"] for t in ALL_TASKS[100:]]   # held-out (trained on [0:100])
+
+# STRATIFIED eval set from v3 (20% holdout per category, ~20 tasks covering
+# all 10 multi-task categories). Replaces the old ID-ordered tasks[100:115]
+# slice which was biased toward server_misc + food_issue.
+EVAL_IDS = json.load(open(EVAL_IDS_PATH))
+TID_TO_CAT = {t["id"]: t["description"]["category"] for t in ALL_TASKS}
+
+# Print eval set distribution so we can SEE it's stratified
+from collections import Counter as _Counter
+print(f"Stratified eval set: {len(EVAL_IDS)} tasks, covering "
+      f"{len(set(TID_TO_CAT[tid] for tid in EVAL_IDS))} categories")
+for cat, n in sorted(_Counter(TID_TO_CAT[tid] for tid in EVAL_IDS).items()):
+    print(f"  {cat:24s} {n}")
 
 FastLanguageModel.for_inference(model)
 
@@ -594,32 +631,72 @@ async def rollout_v3(tid: str, max_turns: int = 8, verbose: bool = False):
 results = []
 for tid in EVAL_IDS:
     r = asyncio.run(rollout_v3(tid))
+    r["category"] = TID_TO_CAT.get(tid, "unknown")
     results.append(r)
     if r.get("error"):
-        print(f"{tid}: ERROR {r['error']}")
+        print(f"{tid:50s} [{r['category']:20s}] ERROR {r['error']}")
     else:
-        print(f"{tid}: r={r['reward']:+.3f} turns={r['turns']} tools={r['tool_calls']}")
+        print(f"{tid:50s} [{r['category']:20s}] "
+              f"r={r['reward']:+.3f} turns={r['turns']} tools={r['tool_calls']}")
 
 # Summary
 valid = [r for r in results if r["reward"] is not None]
 rewards = [r["reward"] for r in valid]
 mean_reward = st.mean(rewards)
-print(f"\n=== Held-out eval ({MODEL_NAME.split('/')[-1]}) ===")
-print(f"Mean:   {mean_reward:+.3f}")
-print(f"Median: {st.median(rewards):+.3f}")
-print(f"Min/Max: {min(rewards):+.3f} / {max(rewards):+.3f}")
+print(f"\n=== Held-out eval ({MODEL_NAME.split('/')[-1]}) on STRATIFIED set ===")
+print(f"Mean:     {mean_reward:+.3f}")
+print(f"Median:   {st.median(rewards):+.3f}")
+print(f"Min/Max:  {min(rewards):+.3f} / {max(rewards):+.3f}")
 print(f"Mean turns: {st.mean([r['turns'] for r in valid]):.2f}")
-print(f"Claude Sonnet 4.5 baseline on same distribution: +0.604")
-print(f"v1 (Qwen7B + 34 traj) for comparison: +0.338")
+print(f"Claude Sonnet 4.5 on SAME stratified eval: +0.314  ← real target")
+print(f"Claude overall (116 tasks, inflated by ID bias): +0.604")
+print(f"v1 on old ID-biased eval:         +0.338")
+print(f"Phase 4 (v2) on old ID-biased:    +0.133  ← failed experiment")
+
+# Per-category breakdown — THIS is the diagnostic goldmine
+from collections import defaultdict as _dd
+by_cat = _dd(list)
+for r in valid:
+    by_cat[r["category"]].append(r["reward"])
+
+# Also pull Claude's per-category mean from the baseline for comparison
+_baseline_path = "/home/ubuntu/openenv-hospitality/eval_results/baseline_claude-sonnet-4-5_20260421_002809.json"
+_claude_records = {r["task_id"]: r["reward"]
+                   for r in json.load(open(_baseline_path))["records"]}
+claude_by_cat = _dd(list)
+for tid in EVAL_IDS:
+    claude_by_cat[TID_TO_CAT[tid]].append(_claude_records[tid])
+
+print(f"\n=== Per-category breakdown ===")
+print(f"{'category':24s} {'n':>3s}  {'ours':>7s}  {'Claude':>7s}  {'Δ':>7s}  {'verdict':>10s}")
+print("-" * 80)
+cat_rows = []
+for cat in sorted(by_cat.keys()):
+    ours = st.mean(by_cat[cat])
+    cla = st.mean(claude_by_cat[cat]) if cat in claude_by_cat else float("nan")
+    diff = ours - cla
+    verdict = ("BEAT" if diff > 0.05 else
+               "MATCH" if abs(diff) <= 0.05 else
+               "LOSE")
+    cat_rows.append((cat, len(by_cat[cat]), ours, cla, diff, verdict))
+    print(f"{cat:24s} {len(by_cat[cat]):>3d}  "
+          f"{ours:>+7.3f}  {cla:>+7.3f}  {diff:>+7.3f}  {verdict:>10s}")
 
 # %%
-# Save eval results WITH TRACES (this was missing in Colab version — cost us diagnosis today)
+# Save eval results WITH TRACES + per-category breakdown
 with open(EVAL_OUT, "w") as f:
     json.dump({
         "model": MODEL_NAME,
         "hub_repo": HUB_REPO,
         "sft_path": SFT_PATH,
+        "eval_set": "stratified_v3",
+        "n_eval": len(EVAL_IDS),
+        "claude_on_same_eval": 0.314,
         "results": results,
+        "per_category": [
+            {"category": c, "n": n, "ours": o, "claude": cl, "delta": d, "verdict": v}
+            for c, n, o, cl, d, v in cat_rows
+        ],
         "summary": {
             "mean": mean_reward,
             "median": st.median(rewards),
@@ -630,7 +707,7 @@ with open(EVAL_OUT, "w") as f:
             "seed": SEED,
         },
     }, f, indent=2, default=str)
-print(f"Wrote {EVAL_OUT}")
+print(f"\nWrote {EVAL_OUT}")
 
 # %% [markdown]
 # ## 8. Save + push to HF Hub
