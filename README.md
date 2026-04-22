@@ -280,7 +280,7 @@ These are **additive, not substitutable**. Even at 100 tasks/category, if the re
 | **P2-7** (taxonomy) | `server_misc` (33 / 116 tasks) is "I don't know where to put it" — violates the `category = shared policy + tool + reward shape` invariant; breaks stratified sampling because misc has the largest within-category distribution shift. | Retire `server_misc`. Reclassify by downstream SOP: `accessibility_policy`, `lost_and_found`, `seating_preference`, etc. Each new category must share `relevant_policies`. |
 | **P2-8** (metric) | No human baseline. Claude's +0.314 is assumed to be the ceiling, but Claude is a proxy, not a domain expert. We don't know which tasks are genuinely hard, which have multiple valid solutions, or whether +0.314 is actually above or below an experienced server's score. | Per-task `human_baseline`: `{server_experienced: score, server_novice: score, time_median_seconds: int}` collected from n=3 real servers. "Deploy-worthy" becomes "matches experienced-server score," not "beats Claude." |
 
-Full derivation of each limitation with the specific V1 rollout evidence is in `scratch/study_notes/03_dev_notes.md` §负零点陆. Accompanying blog writeup: [the compositional density problem](https://binleiwang-hospitality-null-result-blog.static.hf.space/).
+Full derivation of each limitation with the specific V1 rollout evidence is in `scratch/study_notes/03_dev_notes.md` §负零点陆. Accompanying blog writeup: [the compositional density problem](https://binleiwang-hospitality-env-blog.static.hf.space/).
 
 The null isn't about effort. I ran 6 SFT evaluations across 3 families × 2 capacity tiers, drove training loss 12.9× lower on the best recipe, and verified the same reward-surface problem from the GRPO side at two scales. The signal the environment needs isn't there in 40 imitation trajectories against a terminal-only reward over 11 thinly-sampled categories. V2 addresses the limitations above in priority order.
 
@@ -293,7 +293,7 @@ Three publicly hosted artifacts accompany this repo:
 | Artifact | URL | Notes |
 |---|---|---|
 | **Env Space** (OpenEnv FastAPI, Docker) | [`huggingface.co/spaces/binleiwang/hospitality-env`](https://huggingface.co/spaces/binleiwang/hospitality-env) | Docker-backed Space on HF free tier. Exposes `/reset`, `/step`, `/state`, `/schema`, `/docs`, `/ws`. **Cold-start note:** the Space idles after ~48h of inactivity; first request on a cold container boots in ~30–60s, subsequent requests are immediate. This is standard HF free-tier Docker behavior — the container resumes automatically on the next request, no manual intervention required. |
-| **Blog** (static) | [`binleiwang-hospitality-null-result-blog.static.hf.space`](https://binleiwang-hospitality-null-result-blog.static.hf.space/) | Static Space — file serving only, no runtime, always available. |
+| **Blog** (static) | [`binleiwang-hospitality-env-blog.static.hf.space`](https://binleiwang-hospitality-env-blog.static.hf.space/) | Static Space — file serving only, no runtime, always available. |
 | **v1 LoRA adapter** | [`huggingface.co/binleiwang/qwen2.5-7b-hospitality-sft`](https://huggingface.co/binleiwang/qwen2.5-7b-hospitality-sft) | Null-result model card. Load via `PeftModel.from_pretrained`. |
 
 ---
