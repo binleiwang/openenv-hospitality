@@ -86,6 +86,11 @@ os.environ["USE_TORCH"] = "1"
 os.environ["USE_JAX"] = "0"
 os.environ["USE_FLAX"] = "0"
 os.environ["TRANSFORMERS_NO_ADVISORY_WARNINGS"] = "1"
+# Silence TF's CUDA registration warnings (cuFFT/cuDNN/cuBLAS registered twice)
+# when TF loads alongside torch. TF still loads (we can't prevent it — system
+# install), but its logs are hidden.
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
 print(f"MODEL_NAME: {MODEL_NAME}")
 print(f"HUB_REPO:   {HUB_REPO}")
@@ -137,10 +142,20 @@ print(f"LOCAL_BASE: {LOCAL_BASE}")
 # Nuke legacy versions that survived earlier install attempts
 !pip uninstall -y -q trl transformers accelerate || true
 
-# Nuke TF/Keras/JAX/Flax — Lambda stock has these pre-installed and they
-# actively BREAK transformers import (Keras 3 vs modeling_tf_utils). We
-# never use them. Belt-and-suspenders with the USE_TF=0 env var above.
-!pip uninstall -y -q tensorflow tensorflow-cpu tensorflow-gpu keras tf-keras jax jaxlib flax || true
+# Handle Lambda's pre-installed TF/Keras conflict.
+#
+# Background: Lambda stock image has tensorflow + Keras 3 installed SYSTEM-WIDE
+# at /usr/lib/python3/dist-packages/tensorflow (installed via Debian apt).
+# We CANNOT uninstall these without sudo. So even with USE_TF=0, the import
+# chain `from transformers import Trainer` eagerly hits
+# transformers/activations_tf.py, which does `import tf_keras OR import keras`.
+# With tf_keras missing, it falls back to Keras 3 which transformers rejects.
+#
+# Fix: install tf-keras (the backwards-compat shim transformers looks for first).
+# This lets activations_tf succeed on the `import tf_keras` line and skip the
+# Keras 3 code path entirely. TF still loads (eating ~500MB VRAM on H100 —
+# harmless on 80GB) but the import chain completes.
+!pip install -q tf-keras
 
 # --- Core numerics stack (pinned exactly, installed first) ---
 !pip install -q "numpy==1.26.4" "Pillow==10.4.0"
