@@ -35,40 +35,50 @@ Run-order plan on Lambda:
 
 # %%
 # ──────── CONFIG ────────
-# Phase 4: Qwen2.5-7B-Instruct-bnb-4bit
-# Phase 5: Qwen2.5-14B-Instruct-bnb-4bit
-# Phase 6: Qwen2.5-32B-Instruct-bnb-4bit (only if Phase 5 < 0.55)
-MODEL_NAME = "unsloth/Qwen2.5-7B-Instruct-bnb-4bit"
+# 14B experiment Stage 2 — run AFTER eval_base_14b_stratified.py confirms
+# that 14B base materially beats 7B base (Δ ≥ +0.05). If 14B base also ≈
+# +0.10, skip this file entirely and write up the null result.
+#
+# 7B baseline grid (all on stratified eval):
+#   7B base (no SFT)         +0.101
+#   7B v1 (3ep, 37 traj)     +0.101  ← IDENTICAL to base per-task
+#   7B v2 (3ep, 50 traj)     +0.133
+#   7B v3 (6ep, 40 traj)     +0.104
+#   Claude Sonnet 4.5        +0.314
+#
+# Hypothesis for 14B: if base 14B ≥ +0.20, SFT on top can push further.
+# If base 14B ≈ +0.10, SFT won't help (same pattern as 7B).
+MODEL_NAME = "unsloth/Qwen2.5-14B-Instruct-bnb-4bit"
 
-# Hub repo name — v3.1 is the "Goldilocks" epoch-tuned run
-# v2 undertrained (loss 0.76, 3ep, 50 traj, LR 2e-4) → eval +0.133
-# v3 overfit    (loss 0.06, 6ep, 40 traj, LR 3e-4) → eval +0.104  (11/20 froze at turn 0)
-# v3.1 target: loss 0.20-0.30 (3ep, 40 traj, LR 3e-4) — the middle ground
-HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v3p1"
-# HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v3"  # prior overfit run
-# HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v2"  # prior undertrained run
+# Hub repo: new name for the 14B lineage
+HUB_REPO = "binleiwang/qwen2.5-14b-hospitality-sft"
+# HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v3p1"  # 7B v3.1 (never ran)
+# HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v3"    # 7B overfit
+# HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft-v2"    # 7B undertrained
+# HUB_REPO = "binleiwang/qwen2.5-7b-hospitality-sft"       # 7B v1
 
-# v3: stratified SFT pool (per-category top-K, all 11 categories represented)
-# vs Phase 4: global threshold 0.5 had 0 host_seating examples → eval cold on that family
+# SFT data — SAME stratified pool as 7B v3. Only the base model changes.
+# This is the cleanest A/B: isolate the effect of model capacity.
 SFT_PATH = "/home/ubuntu/openenv-hospitality/sft_data/hospitality_sft_strat.jsonl"
 EVAL_IDS_PATH = "/home/ubuntu/openenv-hospitality/sft_data/stratified_eval_ids.json"
 
 # Local artifact paths (Lambda ephemeral disk — must push to Hub before Terminate)
 LOCAL_BASE = "/home/ubuntu/hospitality"
-OUTPUT_DIR = f"{LOCAL_BASE}/adapter_v3p1"
-CHECKPOINT_DIR = f"{LOCAL_BASE}/checkpoints_v3p1"
-EVAL_OUT = f"{LOCAL_BASE}/eval/eval_heldout_v3p1.json"
+OUTPUT_DIR = f"{LOCAL_BASE}/adapter_14b"
+CHECKPOINT_DIR = f"{LOCAL_BASE}/checkpoints_14b"
+EVAL_OUT = f"{LOCAL_BASE}/eval/eval_heldout_14b.json"
 
-# Training config — v3.1 = v3 with epochs halved (overfit fix)
-# - 3 epochs: 15 optimizer steps (vs v3's 30). v3 step 15 loss ≈ 0.18, so
-#   this run targets final loss in the 0.15-0.25 band — past v2's 0.76
-#   floor but before v3's memorization plateau.
-# - LR 3e-4: keep same as v3; the fix is schedule length, not step size.
-# - warmup_ratio 0.03: keep same (~0.5 step warmup, negligible).
+# Training config — conservative "v1 recipe" applied to 14B:
+# - 3 epochs × 40 traj / 8 accum = 15 optimizer steps (same as v1/v3.1 would be)
+# - LR 2e-4 (not 3e-4): larger model → smaller relative per-step updates safer
+# - warmup_ratio 0.05: give the larger param set a brief warmup
+# Why conservative? We want to isolate "does bigger base + same recipe help?"
+# not conflate with LR / epoch changes. If this works, tune later; if not,
+# we've kept the comparison interpretable.
 MAX_SEQ_LENGTH = 8192
 NUM_EPOCHS = 3
-LEARNING_RATE = 3e-4
-WARMUP_RATIO = 0.03
+LEARNING_RATE = 2e-4
+WARMUP_RATIO = 0.05
 SEED = 42
 
 # %%
@@ -668,12 +678,22 @@ print(f"Mean:     {mean_reward:+.3f}")
 print(f"Median:   {st.median(rewards):+.3f}")
 print(f"Min/Max:  {min(rewards):+.3f} / {max(rewards):+.3f}")
 print(f"Mean turns: {st.mean([r['turns'] for r in valid]):.2f}")
-print(f"Claude Sonnet 4.5 on SAME stratified eval: +0.314  ← real target")
-print(f"Claude overall (116 tasks, inflated by ID bias): +0.604")
-print(f"v1 on old ID-biased eval:         +0.338  (eval set not comparable)")
-print(f"v2 on stratified eval:            +0.133  (undertrained, loss 0.76)")
-print(f"v3 on stratified eval:            +0.104  (overfit, loss 0.06, 11/20 froze)")
-print(f"v3.1 target: > +0.15 and have the freeze-at-turn-0 count drop below 5")
+print(f"\n=== Context: all on SAME stratified 20-task eval ===")
+print(f"Claude Sonnet 4.5:            +0.314  ← target")
+print(f"7B base (no SFT):             +0.101")
+print(f"7B v1 (SFT, 37 traj):         +0.101  ← identical to base, per-task")
+print(f"7B v2 (SFT, 50 traj):         +0.133")
+print(f"7B v3 (SFT, 40 traj, strat):  +0.104")
+print(f"14B SFT (THIS RUN):           {mean_reward:+.3f}")
+if MODEL_NAME.startswith("unsloth/Qwen2.5-14B"):
+    _delta_vs_7b_base = mean_reward - 0.101
+    print(f"\n14B SFT vs 7B base Δ = {_delta_vs_7b_base:+.3f}")
+    if _delta_vs_7b_base >= 0.15:
+        print("  → 14B + SFT cracks the reasoning barrier. Ship this.")
+    elif _delta_vs_7b_base >= 0.05:
+        print("  → 14B + SFT helps some. Worth shipping as best checkpoint.")
+    else:
+        print("  → 14B + SFT does not meaningfully help. Null result story.")
 
 # Per-category breakdown — THIS is the diagnostic goldmine
 from collections import defaultdict as _dd
