@@ -6,9 +6,9 @@ Throughout this repo we refer to the project as **Hospitality Env** (short name)
 
 Built for the **OpenEnv Challenge** (Meta PyTorch × Hugging Face × Unsloth, 2026).
 
-> **TL;DR** — A 116-task, 33-tool, multi-turn, safety-critical service-industry environment built from real hot-pot-restaurant operations. We ran an honest SFT experiment across three model families (Qwen, Llama, Gemma) × two capacity tiers (7B, 14B). All six open-weight configurations clustered in a **0.056-wide band** (+0.068 to +0.124); Claude Sonnet 4.5 alone at **+0.314**. On the best SFT recipe, training loss dropped **12× lower** — stratified eval moved **+0.003**.
+> **TL;DR** — A 116-task, 33-tool, multi-turn, safety-critical service-industry environment built from real hot-pot-restaurant operations. I ran the 2026 post-training stack against it end-to-end: **SFT** on three model families (Qwen, Llama, Gemma) at two capacity tiers (7B, 14B), and **GRPO** at two scales (1.5B on T4, 7B on A100 with SFT warmup). All six SFT configs landed inside a **0.056-wide reward band** (+0.068 to +0.124); Claude Sonnet 4.5 alone escaped at **+0.314**. Driving the best SFT recipe's training loss **12.9× lower** moved stratified eval **+0.003**. Both GRPO runs collapsed with `reward_std = 0` within 10–30 steps — no intra-group advantage signal at either scale.
 >
-> **This null is the contribution, not the failure mode.** It empirically validates a specific thesis: hospitality is a *vertical-composite* domain — single-thread training on benchmark-scale task inventories (3.6 tasks/category) cannot close the gap to a frontier ceiling. **ImageNet-scale per-class density, not benchmark-scale breadth, is the path forward.** V2 re-specifies data scale and reward surface along the lines this V1 experiment identified.
+> The null is what I'm submitting. SFT and GRPO each hit the same wall from opposite sides: hospitality is a *vertical-composite* domain, and a reward surface at 3.6 tasks/category is too thin for either method to find signal. The path V2 is taking is ImageNet-style per-class density — 10–50× the current coverage per sub-vertical, combined with step-wise reward shaping — not more recipe tuning on the same task inventory.
 
 ---
 
@@ -143,17 +143,28 @@ Prints mean reward, mean turns, max-turn hit rate, and per-scenario breakdown.
 jupyter notebook notebooks/train_lambda.ipynb
 ```
 
-Three recipe iterations produced:
+Three recipe iterations were trained. Only **v1** and **v3** produce comparable numbers on the final stratified held-out eval; v2 was retired when the stratified split revealed train/eval task-ID leakage in the earlier eval, so its number is not apples-to-apples:
 
-| Version | Epochs | Steps | Train loss (final) | Stratified eval | Notes |
-|---|---|---|---|---|---|
-| **v1** (conservative) | 3 | 18 | 0.7559 | +0.101 | Identical per-task rewards to base |
-| v2 (aggressive, 50 traj) | 5 | — | — | *not run on stratified* | Overfit; inflated score on old ID-biased eval came from train/eval ID overlap |
-| **v3** (pullback, 6 epoch) | 6 | 30 | **0.0587** ⚠️ | +0.104 | 12× loss reduction vs v1; eval moved +0.003 |
+| Version | Role | Epochs | Steps | Train loss (final) | Stratified eval | Notes |
+|---|---|---|---|---|---|---|
+| **v1** | Conservative release (shipped) | 3 | 18 | 0.7559 | +0.101 | Per-task rewards bit-identical to base |
+| v2 | Aggressive (50 traj) — **retired** | 5 | — | — | *not comparable* | Scored high on an early eval split that had train/eval task-ID overlap; retired once the stratified split exposed the leakage |
+| **v3** | Overfit stress test (held, not shipped) | 6 | 30 | **0.0587** ⚠️ | +0.104 | 12.9× loss reduction vs v1; held-out eval moved +0.003 |
 
-**Released adapter:** [`binleiwang/qwen2.5-7b-hospitality-sft`](https://huggingface.co/binleiwang/qwen2.5-7b-hospitality-sft) — v1 (conservative recipe).
+**Released adapter:** [`binleiwang/qwen2.5-7b-hospitality-sft`](https://huggingface.co/binleiwang/qwen2.5-7b-hospitality-sft) — v1 (conservative recipe). v3 is held locally as the stress-test reference; v2 is not published.
 
-Earlier GRPO attempts (1.5B-T4 and 7B-A100, both of which hit `reward_std = 0`) are preserved in `notebooks/_archive/` as diagnostic references for readers debugging similar failures on this stack. The pivot from RL to SFT-only was driven by the `reward_std = 0` failure mode, which itself is diagnostic of the reward-surface issues documented in §[What we learned](#what-we-learned).
+### GRPO attempts — collapse at both scales
+
+Before SFT became the canonical V1 release, I ran two GRPO attempts along the DeepSeek-R1 SFT-warmup-then-GRPO template. Both collapsed:
+
+| Attempt | Stack | Outcome |
+|---|---|---|
+| 1 | Qwen 2.5 1.5B + LoRA r=16, pure GRPO, T4 (Colab) | `reward_std = 0` from step 1; 100 steps of zero advantage |
+| 2 | Qwen 2.5 7B + LoRA r=16, 1-epoch SFT warmup → GRPO, A100 (Colab PAYG) | `reward_std = 0` by ~step 30; β·KL was the only remaining gradient, which pulled the SFT adapter back toward base — GRPO was actively unlearning the warmup |
+
+GRPO computes advantage as `A_i = (reward_i − group_mean) / group_std` over K rollouts per group. When all K rollouts in a group land on the same terminal reward, the denominator is zero and no policy gradient exists. The HF Trainer HTML progress bar hides this: `loss` still prints small numbers because `loss = policy_ratio × advantage + β·KL`, and `β·KL ≈ 0` in the first steps. To see the failure you have to read `reward_std`, `grad_norm`, and `kl` directly from `trainer.state.log_history`.
+
+This is the same problem the SFT null is pointing at, surfaced differently. A reward surface with 3.6 tasks/category and a terminal-only reward doesn't produce enough rollout-level variance for group-relative advantage to exist either. Archived scripts: `notebooks/_archive/train_qwen_grpo.py`, `train_qwen7b_sft_grpo.py`, `train_qwen7b_sft_grpo_v2.py`. Full diagnostic trail: `scratch/study_notes/03_dev_notes.md` §§负一, 负零点五, 负零点一.
 
 ---
 
@@ -171,11 +182,11 @@ All models below were evaluated on the **same 20-task stratified held-out set**,
 | Llama 3.1 8B (base) | +0.124 | −0.190 | 5.90 | `tool_spam` |
 | Gemma 2 9B (base) | +0.068 | −0.246 | 6.80 | `chat_only` |
 
-**Three independent failure modes across three model families, all clustered in a 0.056-wide band roughly 3× below the Claude ceiling.**
+Six open-weight configs, three different failure modes, one 0.056-wide band roughly 3× below Claude:
 
-- **`frozen_loop`** (Qwen 7B family) — agent emits "I'd be happy to help with that" repeatedly, never calls tools.
-- **`tool_spam`** (Qwen 14B, Llama 8B) — agent calls many tools, frequently the wrong ones, netting near-zero reward.
-- **`chat_only`** (Gemma 9B) — agent holds a coherent conversation but never calls a tool. Despite this, Gemma ties Qwen 14B's score (+0.068) — via the **opposite** strategy.
+- **`frozen_loop`** (Qwen 7B family) — agent emits "I'd be happy to help with that" on repeat and never calls a tool.
+- **`tool_spam`** (Qwen 14B, Llama 8B) — many tool calls, frequently the wrong ones, near-zero reward.
+- **`chat_only`** (Gemma 9B) — coherent conversation, zero tool calls. Gemma still ties Qwen 14B at +0.068 via the opposite strategy from tool-spam.
 
 ### The optimization-vs-reward decoupling
 
@@ -191,57 +202,57 @@ One category — `server_food_safety` — is the exception across the null band:
 |---|---|---|---|
 | `server_food_safety` | **+0.100** | −0.100 | **+0.200** |
 
-Gemma wins this category **by doing nothing**. It never calls a tool and so never triggers the policy-violation penalty Claude incurs when *attempting* to handle the allergy case. This is the cleanest single piece of evidence in the repo that **the reward surface rewards inaction on policy-sensitive categories** — one of the 8 structural limitations documented below.
+Gemma wins this category by doing nothing. It never calls a tool, so it never triggers the policy-violation penalty Claude incurs when it *tries* to handle the allergy case. That's evidence the reward surface rewards inaction on policy-sensitive categories — one of the 8 structural limitations listed below.
 
 Raw per-task outputs for all 7 model runs: `evals/eval_heldout_*.json`. Claude baselines: `eval_results/baseline_claude-sonnet-4-5_*.json`.
 
 ---
 
-## Core contribution: the vertical-composite thesis
+## Core contribution: the compositional density problem
 
-**The null result above is not a failed SFT run. It is a controlled experiment whose outcome matches a specific prediction about how service-industry environments must be built.**
+The result above isn't a failed training run. SFT's pipeline works end-to-end, loss decreases monotonically, LoRA applies cleanly, the adapter loads and runs against the env. It's the *outcome* of that working pipeline that matters — a 0.056 band, a 12.9× loss drop that moved eval +0.003, and two GRPO collapses on top — and that outcome is what I think the submission is actually about.
 
-### The thesis
+### Hospitality is a composite of sub-verticals
 
-Hospitality, despite appearing as a single vertical, is internally **a composite of sub-verticals**:
+Hospitality looks like a single vertical from the outside, but inside the restaurant it's 11 distinct sub-verticals:
 
-- Host-side phone / reservation / inquiry
-- Floor service: order management, billing, celebration
-- Safety: allergen handling, incidents, food-poisoning claims
-- Promotion: discounts, loyalty, vouchers
-- Escalation: authority limits, manager override
-- ... (11 categories in this env)
+- Host-side — phone, reservations, inquiries, walk-in seating
+- Floor service — order management, out-of-stock coordination, multi-party billing, celebration
+- Safety — allergen handling, incidents, food-poisoning claims, choking protocols
+- Promotion — discounts, loyalty, vouchers, chain-wide promo inconsistencies
+- Escalation — authority limits, manager override
+- ...
 
-Each sub-vertical requires its own **within-class invariance** — the agent must recognize that "allergen scenario in party X with member profile Y" and "allergen scenario in party A with member profile B" are the same *kind* of problem with structurally analogous solutions, despite different surface details. Learning that invariance requires **depth within the class**, not breadth across classes.
+Each sub-vertical has its own within-class invariance. "Allergen scenario in party X with member profile Y" and "allergen scenario in party A with member profile B" are the same *kind* of problem with structurally analogous solutions — but only if the agent has seen enough examples of that kind to extract the invariance. That's depth within the class, not breadth across classes.
 
-### The ImageNet analogy
+### The ImageNet comparison
 
-ImageNet did not succeed because it had many classes — it succeeded because each class had ~1300 images, enough for models to learn class-invariant features. Our V1 has an average of **3.6 tasks per category**.
+ImageNet didn't work because it had 1,000 classes. It worked because each class had ~1,300 images — enough per-class density for models to learn class-invariant features. V1 has 3.6 tasks per category.
 
-The cross-family null — Qwen / Llama / Gemma all clustering at [+0.068, +0.124], with v3 driving train loss 12× lower than v1 for a +0.003 eval movement — is the empirical signature of environments **below the data-scale threshold for invariance learning**. No amount of recipe tuning, model scale, or architecture change will cross that threshold. Only data scale will.
+The cross-family null (Qwen / Llama / Gemma clustering at [+0.068, +0.124]) and the v3 result (12.9× training-loss reduction → +0.003 eval) are both what "below the per-class-density threshold" looks like from the SFT side. GRPO at 1.5B and 7B shows the same thing from the RL side: when per-category coverage is too thin, K rollouts in a group converge on the same terminal reward, `reward_std → 0`, and the advantage denominator disappears before policy gradient can form. Two methods, two failure signatures, same root — the reward surface doesn't separate behaviors at this data density.
 
-### What V1 is (and is not)
+No recipe tuning, model scale, or architecture change crosses that threshold. Only data scale does.
 
-- **V1 is not a failed training run.** The SFT pipeline works end-to-end, losses decrease monotonically, LoRA applies cleanly, the adapter loads and runs on the env.
-- **V1 is not a benchmark either** — you cannot rank models on it usefully, because the reward surface saturates on inaction (see Gemma `server_food_safety` +0.100 vs Claude −0.100).
-- **V1 is a controlled experiment** that tests whether a hospitality-domain RL environment can produce learning at benchmark-scale task coverage (116 tasks across 11 categories, ~3.6/category). The answer is: no.
+### What V1 is
 
-### What this means for V2 (and for the field)
+- Not a failed training run — the pipeline works.
+- Not a benchmark — you can't rank models on it usefully, because the reward surface saturates on inaction (Gemma `server_food_safety` +0.100 vs Claude −0.100).
+- A controlled experiment on whether a hospitality-domain RL environment can produce learning at benchmark-scale task coverage (116 tasks, 11 categories, ~3.6/category). Answer: no.
 
-V2 is not a bug-fix of V1. It is a **re-specification of scale and reward structure** along the lines V1's experiment identified:
+### What V2 changes
 
-- **Data scale** — programmatic task generation to push per-category coverage 10–50× (approaching ImageNet-like density per sub-vertical).
-- **Reward surface** — step-wise shaping, inaction penalties, trace-based assertion verification (the 8 structural limitations enumerated in [What we learned](#what-we-learned)).
+V2 isn't a bug-fix of V1. It re-specifies the two things V1 pinned down as bottlenecks:
 
-The implication generalizes: **any genuinely vertical-composite domain — hospitality, healthcare, legal, customer service — requires ImageNet-style per-class density, not benchmark-grade per-class sparseness, to train agents that generalize within class.** Single-thread SFT or RL on benchmark-scale task inventories will not close the gap to a Claude-level ceiling. This is what this repo, collectively, argues.
+- **Data scale** — programmatic task generation to push per-category coverage 10–50×, approaching ImageNet-like density per sub-vertical.
+- **Reward surface** — step-wise shaping on verified tool calls, explicit inaction penalties on policy-sensitive categories, trace-based assertion verification (full list in [What we learned](#what-we-learned)).
 
-The V1 artifact set (this repo + the released adapter + the 6 stratified eval jsons + the 4 Claude baseline runs) is the **reference no-signal baseline** against which V2's data-scale and reward-surface interventions will be measured.
+The generalization is the part I care about most: vertical-composite domains — hospitality, healthcare, legal, customer service — aren't going to yield to single-thread SFT or RL over benchmark-grade task inventories. They need per-class density of the kind ImageNet had for vision. V1 is the reference no-signal baseline against which V2's interventions will be measured. The released adapter, the 6 stratified eval JSONs, and the 4 Claude baseline runs are what a future comparison uses.
 
 ---
 
 ## What we learned
 
-This submission is as much about **what the environment cannot train** as what it enables. Eight structural limitations were identified during V1 development and documented alongside V2 fixes:
+As much of this submission is about what the environment can't train as what it enables. Eight structural limitations surfaced during V1, each paired with the V2 fix:
 
 | Priority | Limitation | V2 fix |
 |---|---|---|
@@ -256,7 +267,7 @@ This submission is as much about **what the environment cannot train** as what i
 
 Full analysis of each limitation with reproduction instructions is documented in the accompanying [blog writeup](https://huggingface.co/blog/TODO-blog-url).
 
-**The null result is not a failure of effort.** We ran 6 independent model evaluations across 3 families × 2 capacity tiers, drove training loss 12× lower on the best SFT recipe, and verified the pattern across freeze / tool-spam / chat-only failure modes. The signal the environment needs simply does not exist in 40 imitation trajectories evaluated against a terminal-only reward over 11 thinly-sampled categories. **V2 addresses these root causes in the order listed above.**
+The null isn't about effort. I ran 6 SFT evaluations across 3 families × 2 capacity tiers, drove training loss 12.9× lower on the best recipe, and verified the same reward-surface problem from the GRPO side at two scales. The signal the environment needs isn't there in 40 imitation trajectories against a terminal-only reward over 11 thinly-sampled categories. V2 addresses the limitations above in priority order.
 
 ---
 
