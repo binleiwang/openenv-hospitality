@@ -241,18 +241,22 @@ No recipe tuning, model scale, or architecture change crosses that threshold. On
 
 ### What V2 changes
 
-V2 isn't a bug-fix of V1. It re-specifies the two things V1 pinned down as bottlenecks:
+V2 isn't a bug-fix of V1. It re-specifies the two things V1 pinned down as bottlenecks, in priority order:
 
-- **Data scale** — programmatic task generation to push per-category coverage 10–50×, approaching ImageNet-like density per sub-vertical.
-- **Reward surface** — step-wise shaping on verified tool calls, explicit inaction penalties on policy-sensitive categories, trace-based assertion verification (full list in [What we learned](#what-we-learned)).
+- **Data scale** (P0) — programmatic task generation pushing per-category coverage 10–50×, approaching ImageNet-like density per sub-vertical.
+- **Reward surface** (P0–P1) — step-wise shaping on verified tool calls, explicit inaction penalties on policy-sensitive categories, trace-based assertion verification.
+- **Eval hygiene** (P1) — N=3 sampled rollouts with confidence intervals, per-category variance reported.
+- **Structural lifts** (P2–P3) — multi-agent floor parallelism (so the kitchen-lag pattern actually runs in parallel), shift-level memory, adversarial customer-simulator updates.
+
+The high-level axes above are the narrative version. The **fully itemized roadmap — 8 structural limitations mapped to V2 fixes, priority-ordered P0 → P3 — is in the [V2 roadmap section](#v2-roadmap-8-limitations--fixes-p0p3) below.** Read that one before judging whether V2 has a coherent plan.
 
 The generalization is the part I care about most: vertical-composite domains — hospitality, healthcare, legal, customer service — aren't going to yield to single-thread SFT or RL over benchmark-grade task inventories. They need per-class density of the kind ImageNet had for vision. V1 is the reference no-signal baseline against which V2's interventions will be measured. The released adapter, the 6 stratified eval JSONs, and the 4 Claude baseline runs are what a future comparison uses.
 
 ---
 
-## What we learned
+## V2 roadmap — 8 limitations → fixes (P0–P3)
 
-As much of this submission is about what the environment can't train as what it enables. Eight structural limitations surfaced during V1, each paired with the V2 fix:
+This is the canonical V2 plan. Eight structural limitations surfaced during V1, each paired with the V2 fix and ordered by priority. As much of this submission is about what the environment can't train as what it enables — so this table is the single most load-bearing thing in the whole roadmap.
 
 | Priority | Limitation | V2 fix |
 |---|---|---|
@@ -265,7 +269,7 @@ As much of this submission is about what the environment can't train as what it 
 | **P3** | Rollout-nudge bias — SFT data collection prompt subtly differs from eval prompt | Unified prompt template across collection + eval + training |
 | **P3** | `server_misc` (33/116) is a taxonomy smell | Split into functional sub-categories |
 
-Full analysis of each limitation with reproduction instructions is documented in the accompanying [blog writeup](https://huggingface.co/blog/TODO-blog-url).
+Full analysis of each limitation with reproduction instructions lives in the accompanying [blog writeup](https://binleiwang-hospitality-null-result-blog.static.hf.space/).
 
 The null isn't about effort. I ran 6 SFT evaluations across 3 families × 2 capacity tiers, drove training loss 12.9× lower on the best recipe, and verified the same reward-surface problem from the GRPO side at two scales. The signal the environment needs isn't there in 40 imitation trajectories against a terminal-only reward over 11 thinly-sampled categories. V2 addresses the limitations above in priority order.
 
