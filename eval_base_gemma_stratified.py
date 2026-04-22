@@ -189,13 +189,17 @@ async def rollout_v3(tid: str, max_turns: int = 8):
     client = HospitalityEnv(base_url="http://127.0.0.1:8000")
     total_reward, turns, tool_calls = 0.0, 0, 0
     no_tool_streak = 0
-    messages = [{"role": "system", "content": SYSTEM_PROMPT_V2}]
+    # Gemma's chat template has no system role — prepend system prompt
+    # to the first user message instead of emitting a system turn.
+    messages = []
     trace = []
     try:
         step = await client.reset(task_id=tid)
         obs = step.observation
         for turn in range(max_turns):
             user_content = build_user_turn(obs_to_dict(obs), first_turn=(turn == 0))
+            if turn == 0:
+                user_content = f"{SYSTEM_PROMPT_V2}\n\n---\n\n{user_content}"
             if no_tool_streak >= 2:
                 user_content += (
                     f"\n\n[SYSTEM NUDGE] You have not called a tool in "
